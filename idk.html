@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>david busha</title>
+        <meta name="description" content="The official website of David Busha">
+        <meta property="og:title" content="David Busha">
+
+        <link rel="icon" type="image/png" href="dbss.png">
+        
+        <style type="text/css">     
+            /* Global Responsive Resets */
+            * {
+                text-decoration: none; 
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background-color: rgb(10, 10, 10);
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                overflow-x: hidden;
+            }
+
+            /* Responsive Navbar */
+            .navbar {
+                width: 100%;
+                color: #e0e0e0;
+                margin-top: 30px;
+                margin-bottom: 50px;
+            }
+
+            .navdiv {
+                display: flex; 
+                align-items: center; 
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 20px;
+                width: 100%;
+            }
+
+            .navbar ul {
+                display: flex;
+                flex-wrap: wrap;
+                list-style: none;
+                gap: 30px;
+            }
+
+            .navbar li a {
+                color: #e0e0e0; 
+                font-size: 18px; 
+                font-family: 'SF Mono', monospace, system-ui;
+                font-weight: normal;
+                display: inline-block;
+                transition: color 0.275s, transform 0.275s;
+            }
+
+            .navbar a:hover {
+                color: #7e7e7e;
+                transform: translateY(-3px) scale(1.05);
+            }
+
+            /* Main Page Layout Wrapper */
+            .page-wrapper {
+                width: 100%;
+                animation: pageFadeUp 2.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            }
+
+            /* Hero Intro Layout Container */
+            .hero-container {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 40px;
+                margin-top: 40px;
+                margin-bottom: 80px;
+                width: 100%;
+            }
+
+            .intro-text {
+                flex: 1;
+                max-width: 650px;
+            }
+
+            .intro-text h1 {
+                color: #e0e0e0;
+                font-size: 35px;
+                font-family: 'SF Mono', monospace, system-ui;
+                line-height: 1.4; 
+                font-weight: 600;
+                margin-bottom: 15px;
+            }
+
+            .p1 {
+                color: rgb(134, 133, 133);
+                font-size: 18px;
+                line-height: 1.6;
+                font-family: 'SF Mono', monospace, system-ui;
+                font-weight: normal;
+            }
+
+            .profile-pic-container {
+                flex-shrink: 0;
+            }
+
+            .profile-pic-container img {
+                border-radius: 20px;
+                object-fit: cover;
+                width: 240px;
+                height: 350px;
+                display: block;
+            }
+
+            /* Media Section Grid Layout */
+            h3.section-title {
+                color: rgb(134, 133, 133);
+                font-size: 20px;
+                font-family: 'SF Mono', monospace, system-ui;
+                font-weight: normal;
+                margin-bottom: 30px;
+            }
+
+            .media-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 40px;
+                margin-bottom: 60px;
+                width: 100%;
+            }
+
+            .media-card {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .media-card img {
+                width: 100%;
+                height: 320px;
+                border-radius: 20px;
+                object-fit: cover;
+                display: block;
+            }
+
+            .media-link-text {
+                color: rgb(134, 133, 133);
+                font-size: 13px;
+                font-family: 'SF Mono', monospace, system-ui;
+                font-weight: normal;
+            }
+
+            /* Footer Layout Styles */
+            .p6 a {
+                color: #7e7e7e;
+                font-size: 14px;
+                font-family: 'SF Mono', monospace, system-ui;
+                font-weight: bold;
+                text-align: center; 
+                margin-top: 100px; 
+                margin-bottom: 20px; 
+                width: 100%;
+                display: block; 
+            }
+
+            .p7 {
+                color: #4c4c4c;
+                font-size: 11px;
+                font-family: 'SF Mono', monospace, system-ui;
+                font-weight: bold;
+                text-align: center; 
+                margin-bottom: 50px; 
+                width: 100%;
+                display: block; 
+            }
+                
+            /* Smooth Entry Animation */
+            @keyframes pageFadeUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(12px); 
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);   
+                }
+            }
+
+            /* --- RESPONSIVE MEDIA QUERIES --- */
+
+            /* Tablets & Small Laptops */
+            @media (max-width: 900px) {
+                .hero-container {
+                    flex-direction: column-reverse;
+                    align-items: center;
+                    text-align: center;
+                    gap: 30px;
+                }
+                .intro-text h1 {
+                    font-size: 32px;
+                }
+                .media-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            /* Mobile Devices */
+            @media (max-width: 600px) {
+                body {
+                    padding: 15px;
+                }
+                .navdiv {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .navbar ul {
+                    justify-content: center;
+                    gap: 15px;
+                }
+                .navbar li a {
+                    font-size: 16px;
+                }
+                .intro-text h1 {
+                    font-size: 28px;
+                }
+                .p1 {
+                    font-size: 16px;
+                }
+                .media-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+       
+        <!-- Fluid Navbar Header Section -->
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo">
+                    <img src="dcs.png" alt="David Busha" width="90" height="49">
+                </div>
+                <ul>
+                     <li><a href="/">home</a></li>
+                     <li><a href="/about">about</a></li>
+                     <li><a href="/pursuits">pursuits</a></li>
+                     <li><a href="/systems">systems</a></li>
+                     <li><a href="/research">research</a></li>
+                 </ul>
+            </div>
+        </nav>
+
+        <!-- Entry Wrapper Container -->
+        <div class="page-wrapper">
+            
+            <!-- Hero Layout Block -->
+            <section class="hero-container">
+                <div class="intro-text">
+                    <h1>hi, i'm david!</h1>
+                    <p class="p1">
+                      I'm a self-taught 'developer' and high school junior in ethiopia. I coded this site from scratch to serve as a personal sandbox—a single home for my independent research papers, functional web utilities, and ongoing technical experiments, follow along!
+                    </p>
+                </div>
+                <div class="profile-pic-container">
+                    <img src="no3.jpeg" alt="David Busha">
+                </div>
+            </section>
+
+            <!-- Responsive Dynamic Media Block -->
+            <section>
+                <h3 class="section-title">MENTIONS AND APPEARANCES:</h3>
+                
+                <div class="media-grid">
+                    <!-- Item 1: African Spelling Bee -->
+                    <div class="media-card">
+                        <a href="https://www.africanspellingbee.com/asb23/">
+                            <img src="dbss.png" alt="African Spelling Bee"> <!-- Replaced unclosed anchor image error with clean placeholder link fallback asset -->
+                        </a>
+                        <p class="media-link-text">www.africanspellingbee.com</p>
+                    </div>
+
+                    <!-- Item 2: Capital Newspaper -->
+                    <div class="media-card">
+                        <a href="https://capitalethiopia.com/2023/12/19/african-spelling-bee-championships-conclude-in-kampala/">
+                            <img src="CN.jpeg" alt="capital-newspaper">
+                        </a>
+                        <p class="media-link-text">www.capitalethiopia.com</p>
+                    </div>
+
+                    <!-- Item 3: Wikipedia -->
+                    <div class="media-card">
+                        <a href="https://en.wikipedia.org/wiki/African_Spelling_Bee">
+                            <img src="wiki.jpg" alt="wikipedia">
+                        </a>
+                        <p class="media-link-text">www.wikipedia.com</p> 
+                    </div>
+                </div>
+            </section>
+
