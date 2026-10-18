@@ -187,7 +187,17 @@
                 color: rgb(70, 70, 70);
                 font-size: 11px;
             }
-            
+
+        @keyframes pageFadeUp {
+                from { opacity: 0; transform: translateY(8px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .page-wrapper {
+                width: 100%;
+                animation: pageFadeUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            }
+
             @media (max-width: 768px) {
                 body {
                     padding: 0 24px;
