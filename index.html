@@ -206,14 +206,35 @@
                     align-items: flex-start;
                 }
             }
+            .profile-header-img {
+
+  transform-origin: bottom center;
+  
+  animation: cupSway 4s ease-in-out infinite;
+  
+  /
+  will-change: transform;
+}
+
+@keyframes cupSway {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(4deg); 
+  }
+  75% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(0deg); 
+  }
+}
+
         </style>
     </head>
     <body>
-       
-  
         <div class="main-wrapper">
-
-            
             <nav class="navbar">
                 <div class="navdiv">
                     <div class="text-logo">david busha</div>
