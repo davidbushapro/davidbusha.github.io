@@ -10,37 +10,34 @@
 
         <style type="text/css">
             * {
+                text-decoration: none;
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;
-                text-decoration: none;
-            }
-
-            html, body {
-                min-height: 100%;
-                background: #050505;
             }
 
             body {
-                background-color: #050505;
+                background-color: rgb(10, 10, 10);
                 font-family: 'SF Mono', Monaco, Consolas, 'Fira Code', monospace;
-                color: #eaeaea;
+                color: rgb(140, 140, 140);
                 padding: 0 40px;
+                display: flex;
+                justify-content: center;
+                min-height: 100vh;
                 -webkit-font-smoothing: antialiased;
-                text-rendering: optimizeLegibility;
             }
 
-            .page-shell {
+            .main-wrapper {
                 width: 100%;
-                max-width: 1680px;
-                margin: 0 auto;
+                max-width: 680px;
+                display: flex;
+                flex-direction: column;
+                padding-top: 60px;
             }
 
             .navbar {
                 width: 100%;
-                padding: 18px 0 12px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-                background: #050505;
+                margin-bottom: 120px;
             }
 
             .navdiv {
@@ -51,70 +48,58 @@
             }
 
             .text-logo {
-                color: #f0f0f0;
                 font-size: 13px;
                 font-weight: 600;
-                letter-spacing: 0.22em;
+                color: #e0e0e0;
                 text-transform: uppercase;
+                letter-spacing: 2px;
             }
 
             .navbar ul {
                 list-style: none;
                 display: flex;
-                align-items: center;
-                gap: 28px;
+                gap: 24px;
             }
 
             .navbar li a {
-                color: rgba(210, 210, 210, 0.72);
-                font-size: 10px;
-                letter-spacing: 0.22em;
+                color: rgb(110, 110, 110);
+                font-size: 11px;
                 text-transform: uppercase;
+                letter-spacing: 1.5px;
                 font-weight: 500;
                 transition: color 0.2s ease;
             }
 
-            .navbar li a:hover,
-            .navbar li a.active {
-                color: #f3f3f3;
-            }
-
-            .main-wrapper {
-                width: 100%;
-                display: flex;
-                justify-content: flex-end;
-                padding-top: 30px;
+            .navbar li a:hover, .navbar li a.active {
+                color: #e0e0e0;
             }
 
             .section-container {
-                width: 100%;
-                max-width: 980px;
                 display: flex;
                 flex-direction: column;
+                width: 100%;
+                margin-bottom: 80px;
             }
 
             .section-header-row {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-                padding-bottom: 14px;
-                margin-bottom: 8px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                padding-bottom: 12px;
+                margin-bottom: 10px;
             }
 
             h2 {
-                color: #f0f0f0;
-                font-size: 22px;
-                font-weight: 500;
-                letter-spacing: 0.02em;
+                color: #e0e0e0;
+                font-size: 18px;
+                font-weight: 600;
                 text-transform: lowercase;
             }
 
             .subtitle-note {
                 font-size: 12px;
-                color: rgba(180, 180, 180, 0.72);
-                letter-spacing: 0.04em;
-                text-transform: lowercase;
+                color: rgb(100, 100, 100);
             }
 
             .manifest-list {
@@ -126,105 +111,146 @@
             .manifest-item {
                 display: flex;
                 align-items: flex-start;
-                gap: 28px;
-                padding: 24px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                gap: 24px;
+                padding: 20px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
             }
 
             .item-meta {
-                min-width: 170px;
                 font-size: 12px;
-                color: rgba(170, 170, 170, 0.8);
-                letter-spacing: 0.08em;
+                color: rgb(90, 90, 90);
+                min-width: 90px;
+                padding-top: 3px;
                 text-transform: uppercase;
-                padding-top: 8px;
-                white-space: nowrap;
+                letter-spacing: 0.5px;
             }
 
             .item-main {
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                gap: 12px;
+                gap: 8px;
             }
 
             .item-title {
-                color: #f0f0f0;
-                font-size: 21px;
-                line-height: 1.25;
-                font-weight: 500;
-                letter-spacing: -0.03em;
+                color: #e0e0e0;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1.5;
+                cursor: pointer;
+                transition: color 0.15s ease;
+            }
+
+            .item-title:hover {
+                color: rgb(180, 180, 180);
             }
 
             .item-desc {
-                max-width: 760px;
-                font-size: 15px;
+                font-size: 13px;
                 line-height: 1.7;
-                color: rgba(170, 170, 170, 0.8);
+                color: rgb(130, 130, 130);
             }
 
             .accent-link {
-                display: inline-block;
-                width: fit-content;
+                color: rgb(110, 110, 110);
                 font-size: 12px;
-                color: rgba(220, 220, 220, 0.9);
-                border-bottom: 1px dashed rgba(220, 220, 220, 0.75);
-                letter-spacing: 0.04em;
-                line-height: 1.5;
-                text-transform: lowercase;
+                width: fit-content;
+                border-bottom: 1px dashed rgb(80, 100, 100);
+                transition: color 0.15s ease, border-color 0.15s ease;
+                margin-top: 4px;
             }
 
             .accent-link:hover {
-                color: #f5f5f5;
-                border-bottom-color: rgba(255, 255, 255, 0.9);
+                color: #e0e0e0;
+                border-bottom-color: #e0e0e0;
             }
 
-            @media (max-width: 768px) {
+            footer {
+                margin-top: auto;
+                padding-top: 60px;
+                padding-bottom: 60px;
+                width: 100%;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .footer-link {
+                color: rgb(100, 100, 100);
+                font-size: 12px;
+                transition: color 0.2s;
+            }
+
+            .footer-link:hover {
+                color: #e0e0e0;
+            }
+
+            .copyright-text {
+                color: rgb(70, 70, 70);
+                font-size: 11px;
+            }
+
+            @keyframes pageFadeUp {
+                from { opacity: 0; transform: translateY(8px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .page-wrapper {
+                width: 100%;
+                animation: pageFadeUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            }
+
+            @media (max-width: 600px) {
                 body {
                     padding: 0 24px;
+                }
+
+                .main-wrapper {
+                    padding-top: 40px;
                 }
 
                 .navdiv {
                     flex-direction: column;
                     align-items: flex-start;
-                    gap: 16px;
+                    gap: 24px;
+                }
+
+                .navbar {
+                    margin-bottom: 80px;
                 }
 
                 .navbar ul {
                     width: 100%;
                     justify-content: space-between;
-                    gap: 10px;
+                    gap: 8px;
                 }
 
-                .section-header-row {
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 10px;
+                .navbar li a {
+                    font-size: 10px;
+                    letter-spacing: 1px;
                 }
 
                 .manifest-item {
                     flex-direction: column;
                     gap: 8px;
-                    padding: 18px 0;
+                    padding: 16px 0;
                 }
 
                 .item-meta {
                     min-width: unset;
-                    padding-top: 0;
                 }
 
-                .item-title {
-                    font-size: 18px;
-                }
-
-                .item-desc {
-                    font-size: 14px;
+                footer {
+                    flex-direction: column;
+                    gap: 16px;
+                    align-items: flex-start;
                 }
             }
         </style>
     </head>
     <body>
-        <div class="page-shell">
+        <div class="main-wrapper">
             <nav class="navbar">
                 <div class="navdiv">
                     <div class="text-logo">david busha</div>
@@ -237,7 +263,7 @@
                 </div>
             </nav>
 
-            <div class="main-wrapper">
+            <div class="page-wrapper">
                 <section class="section-container">
                     <div class="section-header-row">
                         <h2>research papers</h2>
