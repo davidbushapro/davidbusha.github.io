@@ -9,39 +9,38 @@
         <link rel="icon" type="image/png" href="davidbusha.png">
 
         <style type="text/css">
-
             * {
-                text-decoration: none;
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;
+                text-decoration: none;
+            }
+
+            html, body {
+                min-height: 100%;
+                background: #050505;
             }
 
             body {
-                background-color: rgb(10, 10, 10);
+                background-color: #050505;
                 font-family: 'SF Mono', Monaco, Consolas, 'Fira Code', monospace;
-                color: rgb(140, 140, 140);
+                color: #eaeaea;
                 padding: 0 40px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                min-height: 100vh;
                 -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
             }
 
-            .main-wrapper {
+            .page-shell {
                 width: 100%;
-                max-width: 800px;
-                display: flex;
-                flex-direction: column;
-                padding-top: 60px;
+                max-width: 1680px;
+                margin: 0 auto;
             }
 
             .navbar {
                 width: 100%;
-                max-width: 800px;
-                margin-bottom: 80px;
+                padding: 18px 0 12px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+                background: #050505;
             }
 
             .navdiv {
@@ -52,58 +51,70 @@
             }
 
             .text-logo {
+                color: #f0f0f0;
                 font-size: 13px;
                 font-weight: 600;
-                color: #e0e0e0;
+                letter-spacing: 0.22em;
                 text-transform: uppercase;
-                letter-spacing: 2px;
             }
 
             .navbar ul {
                 list-style: none;
                 display: flex;
-                gap: 24px;
+                align-items: center;
+                gap: 28px;
             }
 
             .navbar li a {
-                color: rgb(110, 110, 110);
-                font-size: 11px;
+                color: rgba(210, 210, 210, 0.72);
+                font-size: 10px;
+                letter-spacing: 0.22em;
                 text-transform: uppercase;
-                letter-spacing: 1.5px;
                 font-weight: 500;
                 transition: color 0.2s ease;
             }
 
-            .navbar li a:hover, .navbar li a.active {
-                color: #e0e0e0;
+            .navbar li a:hover,
+            .navbar li a.active {
+                color: #f3f3f3;
+            }
+
+            .main-wrapper {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                padding-top: 30px;
             }
 
             .section-container {
+                width: 100%;
+                max-width: 980px;
                 display: flex;
                 flex-direction: column;
-                width: 100%;
-                margin-bottom: 80px;
             }
 
             .section-header-row {
                 display: flex;
                 justify-content: space-between;
-                align-items: baseline;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-                padding-bottom: 12px;
-                margin-bottom: 24px;
+                align-items: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+                padding-bottom: 14px;
+                margin-bottom: 8px;
             }
 
             h2 {
-                color: #e0e0e0;
-                font-size: 18px;
-                font-weight: 600;
+                color: #f0f0f0;
+                font-size: 22px;
+                font-weight: 500;
+                letter-spacing: 0.02em;
                 text-transform: lowercase;
             }
 
             .subtitle-note {
                 font-size: 12px;
-                color: rgb(100, 100, 100);
+                color: rgba(180, 180, 180, 0.72);
+                letter-spacing: 0.04em;
+                text-transform: lowercase;
             }
 
             .manifest-list {
@@ -115,95 +126,57 @@
             .manifest-item {
                 display: flex;
                 align-items: flex-start;
-                padding: 20px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-                gap: 24px;
+                gap: 28px;
+                padding: 24px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             }
 
             .item-meta {
+                min-width: 170px;
                 font-size: 12px;
-                color: rgb(90, 90, 90);
-                min-width: 90px;
-                padding-top: 3px;
+                color: rgba(170, 170, 170, 0.8);
+                letter-spacing: 0.08em;
                 text-transform: uppercase;
-                letter-spacing: 0.5px;
+                padding-top: 8px;
+                white-space: nowrap;
             }
 
             .item-main {
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                gap: 12px;
             }
 
             .item-title {
-                color: #e0e0e0;
-                font-size: 14px;
-                font-weight: 600;
-                line-height: 1.5;
-                cursor: pointer;
-                transition: color 0.15s ease;
-            }
-
-            .item-title:hover {
-                color: rgb(180, 180, 180);
+                color: #f0f0f0;
+                font-size: 21px;
+                line-height: 1.25;
+                font-weight: 500;
+                letter-spacing: -0.03em;
             }
 
             .item-desc {
-                font-size: 13px;
+                max-width: 760px;
+                font-size: 15px;
                 line-height: 1.7;
-                color: rgb(130, 130, 130);
+                color: rgba(170, 170, 170, 0.8);
             }
 
             .accent-link {
-                color: rgb(110, 110, 110);
-                font-size: 12px;
+                display: inline-block;
                 width: fit-content;
-                border-bottom: 1px dashed rgb(80, 100, 100);
-                transition: color 0.15s ease, border-color 0.15s ease;
-                margin-top: 4px;
+                font-size: 12px;
+                color: rgba(220, 220, 220, 0.9);
+                border-bottom: 1px dashed rgba(220, 220, 220, 0.75);
+                letter-spacing: 0.04em;
+                line-height: 1.5;
+                text-transform: lowercase;
             }
 
             .accent-link:hover {
-                color: #e0e0e0;
-                border-bottom-color: #e0e0e0;
-            }
-
-            footer {
-                width: 100%;
-                max-width: 800px;
-                margin-top: auto;
-                padding-top: 40px;
-                padding-bottom: 60px;
-                border-top: 1px solid rgba(255, 255, 255, 0.05);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .footer-link {
-                color: rgb(100, 100, 100);
-                font-size: 12px;
-                transition: color 0.2s;
-            }
-
-            .footer-link:hover {
-                color: #e0e0e0;
-            }
-
-            .copyright-text {
-                color: rgb(70, 70, 70);
-                font-size: 11px;
-            }
-
-            @keyframes pageFadeUp {
-                from { opacity: 0; transform: translateY(8px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            .main-wrapper {
-                width: 100%;
-                animation: pageFadeUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+                color: #f5f5f5;
+                border-bottom-color: rgba(255, 255, 255, 0.9);
             }
 
             @media (max-width: 768px) {
@@ -211,94 +184,87 @@
                     padding: 0 24px;
                 }
 
-                .main-wrapper {
-                    padding-top: 40px;
-                }
-
                 .navdiv {
                     flex-direction: column;
                     align-items: flex-start;
-                    gap: 24px;
-                }
-
-                .navbar {
-                    margin-bottom: 50px;
+                    gap: 16px;
                 }
 
                 .navbar ul {
                     width: 100%;
                     justify-content: space-between;
-                    gap: 8px;
+                    gap: 10px;
                 }
 
-                .navbar li a {
-                    font-size: 10px;
-                    letter-spacing: 1px;
+                .section-header-row {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
                 }
 
                 .manifest-item {
                     flex-direction: column;
                     gap: 8px;
-                    padding: 16px 0;
+                    padding: 18px 0;
                 }
 
                 .item-meta {
                     min-width: unset;
+                    padding-top: 0;
                 }
 
-                footer {
-                    flex-direction: column;
-                    gap: 16px;
-                    align-items: flex-start;
+                .item-title {
+                    font-size: 18px;
+                }
+
+                .item-desc {
+                    font-size: 14px;
                 }
             }
         </style>
     </head>
     <body>
-        <nav class="navbar">
-            <div class="navdiv">
-                <div class="text-logo">david busha</div>
-                <ul>
-                    <li><a href="/">home</a></li>
-                    <li><a href="/pursuits">pursuits</a></li>
-                    <li><a href="/systems">systems</a></li>
-                    <li><a href="/research" class="active">research</a></li>
-                </ul>
+        <div class="page-shell">
+            <nav class="navbar">
+                <div class="navdiv">
+                    <div class="text-logo">david busha</div>
+                    <ul>
+                        <li><a href="/">home</a></li>
+                        <li><a href="/pursuits">pursuits</a></li>
+                        <li><a href="/systems">systems</a></li>
+                        <li><a href="/research" class="active">research</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="main-wrapper">
+                <section class="section-container">
+                    <div class="section-header-row">
+                        <h2>research papers</h2>
+                        <span class="subtitle-note">independent inquiries (in progress)</span>
+                    </div>
+
+                    <div class="manifest-list">
+                        <div class="manifest-item">
+                            <div class="item-meta">[ 2026 / draft ]</div>
+                            <div class="item-main">
+                                <h3 class="item-title">Deep Learning for Ethiopic-Script Recognition: A CNR with Emphasis on Historical Ge&apos;ez OCR</h3>
+                                <p class="item-desc">A critical review of deep learning approaches to Ethiopic-script recognition, examining existing methods, evaluation challenges, and opportunities for improving OCR of historical Ge&apos;ez manuscripts.</p>
+                                <a class="accent-link" href="#">read manuscript link</a>
+                            </div>
+                        </div>
+
+                        <div class="manifest-item">
+                            <div class="item-meta">[ 2026 / draft ]</div>
+                            <div class="item-main">
+                                <h3 class="item-title">Cognitive Optimization: Structural Architecture of Focused Digital Ecosystems</h3>
+                                <p class="item-desc">Investigating behavioral constraints and data-reduction interfaces to document how minimalist software environments impact information filtering metrics in adolescents.</p>
+                                <a class="accent-link" href="#">read repository data</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </nav>
-
-        <div class="main-wrapper">
-            <section class="section-container">
-                <div class="section-header-row">
-                    <h2>research papers</h2>
-                    <span class="subtitle-note">independent inquiries (in progress)</span>
-                </div>
-
-                <div class="manifest-list">
-                    <div class="manifest-item">
-                        <div class="item-meta">[ 2026 / draft ]</div>
-                        <div class="item-main">
-                            <h3 class="item-title">Deep Learning for Ethiopic-Script Recognition: A CNR with Emphasis on Historical Ge’ez OCR</h3>
-                            <p class="item-desc">A critical review of deep learning approaches to Ethiopic-script recognition, examining existing methods, evaluation challenges, and opportunities for future research in historical document analysis.</p>
-                            <a class="accent-link" href="#">read manuscript link</a>
-                        </div>
-                    </div>
-
-                    <div class="manifest-item">
-                        <div class="item-meta">[ 2026 / draft ]</div>
-                        <div class="item-main">
-                            <h3 class="item-title">Cognitive Optimization: Structural Architecture of Focused Digital Ecosystems</h3>
-                            <p class="item-desc">Investigating behavioral constraints and data-reduction interfaces to document how minimalist software environments impact information filtering metrics and attention management.</p>
-                            <a class="accent-link" href="#">read repository data</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
-
-        <footer>
-            <a class="footer-link" href="/">david busha</a>
-            <span class="copyright-text">© 2026</span>
-        </footer>
     </body>
 </html>
