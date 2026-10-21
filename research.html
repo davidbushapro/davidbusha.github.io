@@ -5,13 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Research | David Busha</title>
         <meta name="description" content="Independent research repository and technical systems portfolio of David Busha">
-        
+
         <link rel="icon" type="image/png" href="davidbusha.png">
-        
-        <style type="text/css">     
-            
+
+        <style type="text/css">
+
             * {
-                text-decoration: none; 
+                text-decoration: none;
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;
@@ -23,10 +23,13 @@
                 color: rgb(140, 140, 140);
                 padding: 0 40px;
                 display: flex;
-                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
                 min-height: 100vh;
                 -webkit-font-smoothing: antialiased;
             }
+
             .main-wrapper {
                 width: 100%;
                 max-width: 800px;
@@ -37,12 +40,13 @@
 
             .navbar {
                 width: 100%;
+                max-width: 800px;
                 margin-bottom: 80px;
             }
 
             .navdiv {
-                display: flex; 
-                align-items: center; 
+                display: flex;
+                align-items: center;
                 justify-content: space-between;
                 width: 100%;
             }
@@ -62,8 +66,8 @@
             }
 
             .navbar li a {
-                color: rgb(110, 110, 110); 
-                font-size: 11px; 
+                color: rgb(110, 110, 110);
+                font-size: 11px;
                 text-transform: uppercase;
                 letter-spacing: 1.5px;
                 font-weight: 500;
@@ -73,6 +77,7 @@
             .navbar li a:hover, .navbar li a.active {
                 color: #e0e0e0;
             }
+
             .section-container {
                 display: flex;
                 flex-direction: column;
@@ -100,6 +105,7 @@
                 font-size: 12px;
                 color: rgb(100, 100, 100);
             }
+
             .manifest-list {
                 display: flex;
                 flex-direction: column;
@@ -162,8 +168,10 @@
                 color: #e0e0e0;
                 border-bottom-color: #e0e0e0;
             }
-            
+
             footer {
+                width: 100%;
+                max-width: 800px;
                 margin-top: auto;
                 padding-top: 40px;
                 padding-bottom: 60px;
@@ -188,7 +196,7 @@
                 font-size: 11px;
             }
 
-        @keyframes pageFadeUp {
+            @keyframes pageFadeUp {
                 from { opacity: 0; transform: translateY(8px); }
                 to { opacity: 1; transform: translateY(0); }
             }
@@ -202,34 +210,42 @@
                 body {
                     padding: 0 24px;
                 }
+
                 .main-wrapper {
                     padding-top: 40px;
                 }
+
                 .navdiv {
                     flex-direction: column;
                     align-items: flex-start;
                     gap: 24px;
                 }
+
                 .navbar {
                     margin-bottom: 50px;
                 }
+
                 .navbar ul {
                     width: 100%;
                     justify-content: space-between;
                     gap: 8px;
                 }
+
                 .navbar li a {
                     font-size: 10px;
                     letter-spacing: 1px;
                 }
+
                 .manifest-item {
                     flex-direction: column;
                     gap: 8px;
                     padding: 16px 0;
                 }
+
                 .item-meta {
                     min-width: unset;
                 }
+
                 footer {
                     flex-direction: column;
                     gap: 16px;
@@ -239,19 +255,19 @@
         </style>
     </head>
     <body>
-    
-            <nav class="navbar">
-                <div class="navdiv">
-                    <div class="text-logo">david busha</div>
-                    <ul>
-                         <li><a href="/">home</a></li>
-                         <li><a href="/pursuits">pursuits</a></li>
-                         <li><a href="/systems">systems</a></li>
-                         <li><a href="/research" class="active">research</a></li>
-                     </ul>
-                </div>
-            </nav>
-    <div class="main-wrapper">
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="text-logo">david busha</div>
+                <ul>
+                    <li><a href="/">home</a></li>
+                    <li><a href="/pursuits">pursuits</a></li>
+                    <li><a href="/systems">systems</a></li>
+                    <li><a href="/research" class="active">research</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main-wrapper">
             <section class="section-container">
                 <div class="section-header-row">
                     <h2>research papers</h2>
@@ -263,21 +279,26 @@
                         <div class="item-meta">[ 2026 / draft ]</div>
                         <div class="item-main">
                             <h3 class="item-title">Deep Learning for Ethiopic-Script Recognition: A CNR with Emphasis on Historical Ge’ez OCR</h3>
-                            <p class="item-desc">A critical review of deep learning approaches to Ethiopic-script recognition, examining existing methods, evaluation challenges, and opportunities for improving OCR of historical Geʽez manuscripts.</p>
+                            <p class="item-desc">A critical review of deep learning approaches to Ethiopic-script recognition, examining existing methods, evaluation challenges, and opportunities for future research in historical document analysis.</p>
                             <a class="accent-link" href="#">read manuscript link</a>
                         </div>
                     </div>
 
-           
                     <div class="manifest-item">
                         <div class="item-meta">[ 2026 / draft ]</div>
                         <div class="item-main">
                             <h3 class="item-title">Cognitive Optimization: Structural Architecture of Focused Digital Ecosystems</h3>
-                            <p class="item-desc">Investigating behavioral constraints and data-reduction interfaces to document how minimalist software environments impact information filtering metrics in adolescents.</p>
+                            <p class="item-desc">Investigating behavioral constraints and data-reduction interfaces to document how minimalist software environments impact information filtering metrics and attention management.</p>
                             <a class="accent-link" href="#">read repository data</a>
                         </div>
                     </div>
                 </div>
             </section>
-        </body>
+        </div>
+
+        <footer>
+            <a class="footer-link" href="/">david busha</a>
+            <span class="copyright-text">© 2026</span>
+        </footer>
+    </body>
 </html>
