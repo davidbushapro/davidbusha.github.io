@@ -3,18 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Research | David Busha</title>
+        <title>Systems | David Busha</title>
         <meta name="description" content="The official website of David Busha">
         <link rel="icon" type="image/png" href="dav.png">
 
         <style type="text/css">
             :root {
                 --bg: #050505;
-                --text: #ececec;
-                --muted: #8d8d8d;
-                --soft: #707070;
+                --bg-2: #0a0a0a;
+                --panel: #090909;
+                --text: #efefef;
+                --muted: rgba(255, 255, 255, 0.72);
+                --soft: rgba(255, 255, 255, 0.46);
                 --line: rgba(255, 255, 255, 0.08);
-                --line-soft: rgba(255, 255, 255, 0.04);
             }
 
             * {
@@ -26,46 +27,47 @@
 
             html, body {
                 min-height: 100%;
+                background: var(--bg);
             }
 
             body {
                 background-color: var(--bg);
                 font-family: 'SF Mono', Monaco, Consolas, 'Fira Code', monospace;
                 color: var(--muted);
-                padding: 0 40px;
+                min-height: 100vh;
                 display: flex;
                 justify-content: center;
-                min-height: 100vh;
+                padding: 0 36px;
                 -webkit-font-smoothing: antialiased;
                 text-rendering: optimizeLegibility;
             }
 
             .main-wrapper {
                 width: 100%;
-                max-width: 680px;
+                max-width: 760px;
+                padding-top: 48px;
                 display: flex;
                 flex-direction: column;
-                padding-top: 34px;
             }
 
             .navbar {
                 width: 100%;
-                margin-bottom: 76px;
+                margin-bottom: 84px;
             }
 
             .navdiv {
+                width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                width: 100%;
             }
 
             .text-logo {
+                color: var(--text);
                 font-size: 12px;
                 font-weight: 600;
-                color: var(--text);
+                letter-spacing: 3px;
                 text-transform: uppercase;
-                letter-spacing: 2.5px;
                 line-height: 1;
             }
 
@@ -77,12 +79,12 @@
             }
 
             .navbar li a {
-                color: var(--soft);
+                color: rgba(255,255,255,0.52);
                 font-size: 10px;
-                text-transform: uppercase;
-                letter-spacing: 2px;
                 font-weight: 500;
-                transition: color 0.2s ease;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                transition: color 0.15s ease;
             }
 
             .navbar li a:hover,
@@ -92,110 +94,44 @@
 
             .page-wrapper {
                 width: 100%;
-                animation: pageFadeUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+                animation: pageFadeUp 1.4s ease-out both;
             }
 
-            .section-container {
+            .content-block {
+                width: 100%;
                 display: flex;
                 flex-direction: column;
-                width: 100%;
-                margin-bottom: 20px;
+                gap: 30px;
+                max-width: 620px;
+                margin: 0 auto;
             }
 
-            .section-header-row {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                border-bottom: 1px solid var(--line);
-                padding-bottom: 9px;
-                margin-bottom: 0;
+            p {
+                color: rgba(255,255,255,0.72);
+                font-size: 15px;
+                line-height: 1.8;
+                letter-spacing: -0.02em;
             }
 
-            h2 {
-                color: var(--text);
-                font-size: 18px;
-                font-weight: 400;
-                text-transform: lowercase;
-                letter-spacing: -0.04em;
-                line-height: 1.2;
-            }
-
-            .subtitle-note {
-                font-size: 11px;
-                color: var(--soft);
-                line-height: 1;
-                white-space: nowrap;
-            }
-
-            .manifest-list {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .manifest-item {
-                display: flex;
-                align-items: flex-start;
-                gap: 16px;
-                width: 100%;
-                padding: 18px 0 18px;
-                border-bottom: 1px solid var(--line-soft);
-            }
-
-            .item-meta {
-                min-width: 120px;
-                padding-top: 4px;
-                color: var(--soft);
-                font-size: 10px;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                line-height: 1.6;
-                white-space: nowrap;
-            }
-
-            .item-main {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                max-width: 560px;
-            }
-
-            .item-title {
-                color: rgba(255, 255, 255, 0.94);
+            h3 {
+                color: rgba(255,255,255,0.92);
                 font-size: 16px;
                 font-weight: 500;
-                line-height: 1.48;
-                letter-spacing: -0.05em;
+                letter-spacing: -0.04em;
+                line-height: 1.5;
+                margin-top: 16px;
             }
 
-            .item-desc {
-                color: rgba(255, 255, 255, 0.58);
-                font-size: 12px;
-                line-height: 1.7;
-                max-width: 500px;
-                letter-spacing: -0.01em;
-            }
-
-            .accent-link {
-                color: var(--muted);
-                font-size: 11px;
-                width: fit-content;
-                border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
-                transition: color 0.15s ease, border-color 0.15s ease;
-                line-height: 1.2;
-                text-transform: lowercase;
-            }
-
-            .accent-link:hover {
-                color: var(--text);
-                border-bottom-color: rgba(255, 255, 255, 0.8);
+            .section {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
             }
 
             @keyframes pageFadeUp {
                 from {
                     opacity: 0;
-                    transform: translateY(8px);
+                    transform: translateY(6px);
                 }
                 to {
                     opacity: 1;
@@ -209,13 +145,13 @@
                 }
 
                 .main-wrapper {
-                    padding-top: 26px;
+                    padding-top: 36px;
                 }
 
                 .navdiv {
                     flex-direction: column;
                     align-items: flex-start;
-                    gap: 24px;
+                    gap: 20px;
                 }
 
                 .navbar {
@@ -226,29 +162,10 @@
                     width: 100%;
                     justify-content: space-between;
                     gap: 8px;
+                    flex-wrap: wrap;
                 }
 
-                .section-header-row {
-                    align-items: flex-end;
-                    gap: 12px;
-                }
-
-                .subtitle-note {
-                    white-space: normal;
-                    text-align: right;
-                }
-
-                .manifest-item {
-                    flex-direction: column;
-                    gap: 8px;
-                }
-
-                .item-meta {
-                    min-width: 0;
-                    padding-top: 0;
-                }
-
-                .item-main {
+                .content-block {
                     max-width: 100%;
                 }
             }
@@ -262,57 +179,53 @@
                     <ul>
                         <li><a href="/">home</a></li>
                         <li><a href="/pursuits">pursuits</a></li>
-                        <li><a href="/systems">systems</a></li>
-                        <li><a href="/research" class="active">research</a></li>
+                        <li><a href="/systems" class="active">systems</a></li>
+                        <li><a href="/research">research</a></li>
                     </ul>
                 </div>
             </nav>
 
             <div class="page-wrapper">
-                <section class="section-container">
-                    <div class="section-header-row">
-                        <h2>research papers</h2>
-                        <span class="subtitle-note">independent inquiries (in progress)</span>
-                    </div>
+                <div class="content-block">
+                    <section class="section">
+                        <p>
+                            To me, systems are not software architectures—they are the cognitive and
+                            structural frameworks I design to optimize human execution.
+                        </p>
 
-                    <div class="manifest-list">
-                        <article class="manifest-item">
-                            <div class="item-meta">[ 2026 / draft ]</div>
-                            <div class="item-main">
-                                <h3 class="item-title">Deep Learning for Ethiopic-Script Recognition: A CNR with Emphasis on Historical Ge&apos;ez OCR</h3>
-                                <p class="item-desc">A critical review of deep learning approaches to Ethiopic-script recognition, examining existing methods, evaluation challenges, and opportunities for improving OCR of historical Ge&apos;ez manuscripts.</p>
-                                <a href="#" class="accent-link">read manuscript link</a>
-                            </div>
-                        </article>
+                        <p>
+                            As an avid learner, I try to view productivity and academic mastery as
+                            engineering problems that require deliberate design. This repository documents
+                            the exact behavioral protocols, memory synthesis systems, and minimalist
+                            environments I have engineered to eliminate cognitive friction, maintain
+                            absolute academic focus, and systematically achieve top-tier metrics
+                            throughout high school.
+                        </p>
+                    </section>
 
-                        <article class="manifest-item">
-                            <div class="item-meta">[ 2026 / draft ]</div>
-                            <div class="item-main">
-                                <h3 class="item-title">Cognitive Optimization: Structural Architecture of Focused Digital Ecosystems</h3>
-                                <p class="item-desc">Investigating behavioral constraints and data-reduction interfaces to document how minimalist software environments impact information filtering metrics in adolescents.</p>
-                                <a href="#" class="accent-link">read repository data</a>
-                            </div>
-                        </article>
-                    </div>
-                </section>
+                    <section class="section">
+                        <h3>What do I use for academics?</h3>
 
-                <section class="section-container">
-                    <div class="section-header-row">
-                        <h2>projects</h2>
-                        <span class="subtitle-note">independent projects (in progress)</span>
-                    </div>
+                        <p>
+                            It is called blunting, and the idea is simple. Read your notes for 30 minutes,
+                            then write down everything you remember on paper. Reread to fill any memory
+                            gaps until you know it perfectly. This method transformed my academic
+                            performance starting freshman year. If you are in high school, or even in uni,
+                            I highly encourage you to try it. Also, I've started to use Field Notes (Heavy
+                            Duty Edition) as one of my main workbooks, will see how it works in the long run.
+                        </p>
+                    </section>
 
-                    <div class="manifest-list">
-                        <article class="manifest-item">
-                            <div class="item-meta">[ 2026 / draft ]</div>
-                            <div class="item-main">
-                                <h3 class="item-title">Local Knowledge Systems Archive</h3>
-                                <p class="item-desc">A structured collection of regional language resources, field notes, and annotation workflows intended to support long-term digital preservation and accessible historical inquiry.</p>
-                                <a href="#" class="accent-link">read project overview</a>
-                            </div>
-                        </article>
-                    </div>
-                </section>
+                    <section class="section">
+                        <h3>What do I use for productivity?</h3>
+
+                        <p>
+                            To be more productive with my time, I switched my phone from a colorful,
+                            dopamine-filled homepage to a minimalist, dumb-phone setup. It has worked
+                            wonders for me, and the gains in focus have been immediate.
+                        </p>
+                    </section>
+                </div>
             </div>
         </div>
     </body>
