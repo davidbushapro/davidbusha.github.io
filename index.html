@@ -3,36 +3,58 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
         <title>David Busha</title>
         <meta name="description" content="The official website of David Busha">
         <meta property="og-title" content="David Busha">
 
         <link rel="icon" type="image/png" href="dav.png">
-        
-        <style type="text/css">     
-        
+
+        <style type="text/css">
+            :root {
+                --bg: rgb(10, 10, 10);
+                --text: rgb(140, 140, 140);
+                --text-strong: #e0e0e0;
+                --text-muted: rgb(100, 100, 100);
+                --link: rgb(110, 110, 110);
+                --link-hover: #e0e0e0;
+                --border: rgba(255, 255, 255, 0.08);
+            }
+
+            @media (prefers-color-scheme: light) {
+                :root {
+                    --bg: rgb(248, 248, 246);
+                    --text: rgb(70, 70, 70);
+                    --text-strong: rgb(24, 24, 24);
+                    --text-muted: rgb(108, 108, 108);
+                    --link: rgb(88, 88, 88);
+                    --link-hover: rgb(18, 18, 18);
+                    --border: rgba(0, 0, 0, 0.08);
+                }
+            }
+
             * {
-                text-decoration: none; 
+                text-decoration: none;
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;
             }
 
             body {
-                background-color: rgb(10, 10, 10);
-                
+                background-color: var(--bg);
                 font-family: 'SF Mono', Monaco, Consolas, 'Fira Code', monospace;
-                color: rgb(140, 140, 140);
+                color: var(--text);
                 padding: 0 40px;
                 display: flex;
                 justify-content: center;
                 min-height: 100vh;
                 -webkit-font-smoothing: antialiased;
+                transition: background-color 0.25s ease, color 0.25s ease;
             }
-            
+
             .main-wrapper {
                 width: 100%;
-                max-width: 680px; 
+                max-width: 680px;
                 display: flex;
                 flex-direction: column;
                 padding-top: 60px;
@@ -44,8 +66,8 @@
             }
 
             .navdiv {
-                display: flex; 
-                align-items: center; 
+                display: flex;
+                align-items: center;
                 justify-content: space-between;
                 width: 100%;
             }
@@ -53,7 +75,7 @@
             .text-logo {
                 font-size: 13px;
                 font-weight: 600;
-                color: #e0e0e0;
+                color: var(--text-strong);
                 text-transform: uppercase;
                 letter-spacing: 2px;
             }
@@ -65,8 +87,8 @@
             }
 
             .navbar li a {
-                color: rgb(110, 110, 110); 
-                font-size: 11px; 
+                color: var(--link);
+                font-size: 11px;
                 text-transform: uppercase;
                 letter-spacing: 1.5px;
                 font-weight: 500;
@@ -74,20 +96,21 @@
             }
 
             .navbar li a:hover, .navbar li a.active {
-                color: #e0e0e0;
+                color: var(--link-hover);
             }
-            
+
             .profile-header-img {
                 width: 70px;
                 height: 70px;
-                
                 object-fit: cover;
                 display: block;
                 margin-bottom: 40px;
                 filter: grayscale(20%);
-                
-            } 
-            
+                transform-origin: center;
+                animation: cupSway 5s ease-in-out infinite;
+                will-change: transform;
+            }
+
             .content-section {
                 display: flex;
                 flex-direction: column;
@@ -100,23 +123,23 @@
                 font-size: 14px;
                 line-height: 1.8;
                 font-weight: normal;
-                color: rgb(145, 145, 145);
+                color: var(--text);
             }
 
             .accent-link {
-                color: #e0e0e0;
-                border-bottom: 1px dashed rgb(100, 100, 100);
+                color: var(--text-strong);
+                border-bottom: 1px dashed var(--link);
                 transition: color 0.15s ease, border-color 0.15s ease;
             }
 
             .accent-link:hover {
-                color: rgb(180, 180, 180);
-                border-bottom-color: #e0e0e0;
+                color: var(--link-hover);
+                border-bottom-color: var(--link-hover);
             }
 
             .section-label {
                 font-size: 13px;
-                color: #e0e0e0;
+                color: var(--text-strong);
                 font-weight: 600;
                 margin-top: 20px;
                 margin-bottom: 4px;
@@ -136,36 +159,36 @@
             }
 
             .item-tag {
-                color: rgb(100, 100, 100);
+                color: var(--text-muted);
                 margin-right: 8px;
             }
-            
+
             footer {
                 margin-top: auto;
                 padding-top: 60px;
                 padding-bottom: 60px;
                 width: 100%;
-                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                border-top: 1px solid var(--border);
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
             }
 
             .footer-link {
-                color: rgb(100, 100, 100);
+                color: var(--text-muted);
                 font-size: 12px;
                 transition: color 0.2s;
             }
 
             .footer-link:hover {
-                color: #e0e0e0;
+                color: var(--link-hover);
             }
 
             .copyright-text {
                 color: rgb(70, 70, 70);
                 font-size: 11px;
             }
-                
+
             @keyframes pageFadeUp {
                 from { opacity: 0; transform: translateY(8px); }
                 to { opacity: 1; transform: translateY(0); }
@@ -206,30 +229,21 @@
                     align-items: flex-start;
                 }
             }
-            .profile-header-img {
 
-  transform-origin: center;
-  
-  animation: cupSway 5s ease-in-out infinite;
-  
-  /
-  will-change: transform;
-}
-
-        @keyframes cupSway {
-          0% {
-            transform: rotate(0deg);
-          }
-          25% {
-            transform: rotate(8deg); 
-          }
-            75% {
-            transform: rotate(-8deg);
-          }
-          100% {
-            transform: rotate(0deg); 
-          }
-
+            @keyframes cupSway {
+                0% {
+                    transform: rotate(0deg);
+                }
+                25% {
+                    transform: rotate(8deg);
+                }
+                75% {
+                    transform: rotate(-8deg);
+                }
+                100% {
+                    transform: rotate(0deg);
+                }
+            }
         </style>
     </head>
     <body>
@@ -238,71 +252,72 @@
                 <div class="navdiv">
                     <div class="text-logo">david busha</div>
                     <ul>
-                         <li><a href="/" class="active">home</a></li>
-                         <li><a href="/pursuits">pursuits</a></li>
-                         <li><a href="/systems">systems</a></li>
-                         <li><a href="/research">research</a></li>
-                     </ul>
+                        <li><a href="/" class="active">home</a></li>
+                        <li><a href="/pursuits">pursuits</a></li>
+                        <li><a href="/systems">systems</a></li>
+                        <li><a href="/research">research</a></li>
+                    </ul>
                 </div>
             </nav>
-            
-            <div class="page-wrapper"> 
+
+            <div class="page-wrapper">
                 <img class="profile-header-img" src="dcs.png" alt=" ">
-                    <main class="content-section">
-                    
+                <main class="content-section">
                     <p class="p1">
-                        <i>Hello there!</i> I'm David Busha, a self-taught developer and high-school junior based in Ethiopia. I programmed this site from scratch to serve as an independent digital sandbox—a clean personal home for hosting my original research papers, genuine interests, and technical systems.
+                        <i>Hello there!</i> I'm David Busha, a self-taught developer and high-school junior based in Ethiopia. I programmed this site from scratch to serve as an independent digital portfolio. The work here reflects my interests in software engineering, language, and systems thinking.
                     </p>
                     <p class="p1">
-                      My interests lie at the intersection of computer science, language, and the humanities. I am particularly interested in how computational methods can help us understand language and patterns, and I am exploring these questions through independent research and technical projects. Beyond computing, I remain drawn to history, geography, and the social sciences—fields that shape the questions I ask and the way I approach problems.
+                        My interests lie at the intersection of computer science, language, and the humanities. I am particularly interested in how computational methods can help us understand language structure, historical texts, and the way people build and use systems.
                     </p>
-                        
+
                     <div class="section-label">ABOUT ME</div>
-            
+
                     <p class="p1">
-                        I was born in Canada to Ethiopian parents and moved to Ethiopia at age 6. I first jumped deep into structural linguistic arrays during my training for competitive exhibitions. This work culminated on the continental stage in both Blantyre, Malawi and Kampala, Uganda, where I placed 2nd overall in the Senior Category at the <a class="accent-link" href="https://africanspellingbee.com" target="_blank" rel="noopener noreferrer">6th Annual African Spelling Bee Finals</a>, making history as the first podium placement representing Ethiopia.
+                        I was born in Canada to Ethiopian parents and moved to Ethiopia at age 6. I first jumped deep into structural linguistic arrays during my training for competitive exhibitions, which sharpened my appreciation for pattern, form, and variation.
                     </p>
 
                     <p class="p1">
-                        Lately, I have pivoted those analytical frameworks toward software systems engineering and data synthesis, building out localized logic utilities while writing independent research components. 
+                        Lately, I have pivoted those analytical frameworks toward software systems engineering and data synthesis, building out localized logic utilities while writing independent research and technical notes.
                     </p>
 
                     <div class="section-label">MENTIONS AND APPEARANCES</div>
-                    
-                    <ul class="appearances-list">
-                        <li class="appearance-item">
-                            <span class="item-tag"><i>[ASB23]</i></span> 
-                            <a class="accent-link" href="https://www.africanspellingbee.com/asb23/"target="_blank" rel="noopener noreferrer">AFRICAN SPELLING BEE CHAMPIONSHIPS CONCLUDE IN KAMPALA WITH REMARKABLE SUCCESS</a>
-                        </li>
-                        <li class="appearance-item">
-                            <span class="item-tag"><i>[Capital]</i></span> 
-                            <a class="accent-link" href="https://capitalethiopia.com/2023/12/19/african-spelling-bee-championships-conclude-in-kampala/"target="_blank" rel="noopener noreferrer">Ethiopia’s David Busha came 2nd in Senior Category</a>
-                        </li>
-                         <li class="appearance-item">
-                            <span class="item-tag"><i>[Wikipedia]</i></span> 
-                            <a class="accent-link" href="https://en.wikipedia.org/wiki/African_Spelling_Bee"target="_blank" rel="noopener noreferrer">African Spelling Bee</a>
-                        </li>
 
-                             <div class="section-label">CONTACT</div>
-                    
                     <ul class="appearances-list">
                         <li class="appearance-item">
-                            <span class="item-tag"><i>[Email]</i></span> 
+                            <span class="item-tag"><i>[ASB23]</i></span>
+                            <a class="accent-link" href="https://www.africanspellingbee.com/asb23/" target="_blank" rel="noopener noreferrer">AFRICAN SPELLING BEE CHAMPIONSHIPS CONCLUDE IN KAMPALA</a>
+                        </li>
+                        <li class="appearance-item">
+                            <span class="item-tag"><i>[Capital]</i></span>
+                            <a class="accent-link" href="https://capitalethiopia.com/2023/12/19/african-spelling-bee-championships-conclude-in-kampala/" target="_blank" rel="noopener noreferrer">Ethiopia: African Spelling Bee Championships Conclude in Kampala</a>
+                        </li>
+                        <li class="appearance-item">
+                            <span class="item-tag"><i>[Wikipedia]</i></span>
+                            <a class="accent-link" href="https://en.wikipedia.org/wiki/African_Spelling_Bee" target="_blank" rel="noopener noreferrer">African Spelling Bee</a>
+                        </li>
+                    </ul>
+
+                    <div class="section-label">CONTACT</div>
+
+                    <ul class="appearances-list">
+                        <li class="appearance-item">
+                            <span class="item-tag"><i>[Email]</i></span>
                             <a class="accent-link" href="#">contact@davidbusha.com</a>
                         </li>
-                        
+
                         <li class="appearance-item">
-                            <span class="item-tag"><i>[Instagram]</i></span> 
-                            <a class="accent-link" href="https://www.instagram.com/davidbusha_/"target="_blank" rel="noopener noreferrer">@davidbusha_</a>
-                         </li>
-                        
-                       
-                        <p class="p1">Copyright &copy; <span id="year"></span> David Busha. All rights reserved.</p>
+                            <span class="item-tag"><i>[Instagram]</i></span>
+                            <a class="accent-link" href="https://www.instagram.com/davidbusha_/" target="_blank" rel="noopener noreferrer">@davidbusha_</a>
+                        </li>
+                    </ul>
 
-                        <script>
-                          document.getElementById("year").textContent = new Date().getFullYear();
-                        </script>
+                    <p class="p1">Copyright &copy; <span id="year"></span> David Busha. All rights reserved.</p>
+                </main>
+            </div>
+        </div>
 
-            </body>
+        <script>
+          document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
+    </body>
 </html>
-
