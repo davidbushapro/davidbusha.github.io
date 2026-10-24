@@ -5,39 +5,53 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Research | David Busha</title>
         <meta name="description" content="The official website of David Busha">
-
         <link rel="icon" type="image/png" href="dav.png">
 
         <style type="text/css">
+            :root {
+                --bg: #050505;
+                --panel: #090909;
+                --text: #e7e7e7;
+                --muted: #8b8b8b;
+                --soft: #6b6b6b;
+                --line: rgba(255, 255, 255, 0.08);
+                --line-soft: rgba(255, 255, 255, 0.04);
+            }
+
             * {
-                text-decoration: none;
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;
+                text-decoration: none;
+            }
+
+            html, body {
+                min-height: 100%;
             }
 
             body {
-                background-color: rgb(10, 10, 10);
+                background-color: var(--bg);
                 font-family: 'SF Mono', Monaco, Consolas, 'Fira Code', monospace;
-                color: rgb(140, 140, 140);
+                color: var(--muted);
                 padding: 0 40px;
                 display: flex;
                 justify-content: center;
                 min-height: 100vh;
                 -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
             }
 
             .main-wrapper {
                 width: 100%;
-                max-width: 680px;
+                max-width: 760px;
                 display: flex;
                 flex-direction: column;
-                padding-top: 60px;
+                padding-top: 34px;
             }
 
             .navbar {
                 width: 100%;
-                margin-bottom: 120px;
+                margin-bottom: 82px;
             }
 
             .navdiv {
@@ -48,58 +62,70 @@
             }
 
             .text-logo {
-                font-size: 13px;
+                font-size: 12px;
                 font-weight: 600;
-                color: #e0e0e0;
+                color: var(--text);
                 text-transform: uppercase;
-                letter-spacing: 2px;
+                letter-spacing: 3px;
+                line-height: 1;
             }
 
             .navbar ul {
                 list-style: none;
                 display: flex;
+                align-items: center;
                 gap: 24px;
             }
 
             .navbar li a {
-                color: rgb(110, 110, 110);
-                font-size: 11px;
+                color: var(--soft);
+                font-size: 10px;
                 text-transform: uppercase;
-                letter-spacing: 1.5px;
+                letter-spacing: 2px;
                 font-weight: 500;
                 transition: color 0.2s ease;
             }
 
-            .navbar li a:hover, .navbar li a.active {
-                color: #e0e0e0;
+            .navbar li a:hover,
+            .navbar li a.active {
+                color: var(--text);
+            }
+
+            .page-wrapper {
+                width: 100%;
+                animation: pageFadeUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
             }
 
             .section-container {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                margin-bottom: 80px;
+                margin-bottom: 28px;
             }
 
             .section-header-row {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                border-bottom: 1px solid var(--line);
                 padding-bottom: 12px;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
             }
 
             h2 {
-                color: #e0e0e0;
-                font-size: 18px;
-                font-weight: 600;
+                color: var(--text);
+                font-size: 23px;
+                font-weight: 400;
                 text-transform: lowercase;
+                letter-spacing: -0.04em;
+                line-height: 1.2;
             }
 
             .subtitle-note {
                 font-size: 12px;
-                color: rgb(100, 100, 100);
+                color: var(--soft);
+                line-height: 1;
+                white-space: nowrap;
             }
 
             .manifest-list {
@@ -111,103 +137,80 @@
             .manifest-item {
                 display: flex;
                 align-items: flex-start;
-                gap: 24px;
-                padding: 20px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+                gap: 18px;
+                width: 100%;
+                padding: 18px 0 18px;
+                border-bottom: 1px solid var(--line-soft);
             }
 
             .item-meta {
-                font-size: 12px;
-                color: rgb(90, 90, 90);
-                min-width: 90px;
-                padding-top: 3px;
+                min-width: 140px;
+                padding-top: 7px;
+                color: var(--soft);
+                font-size: 11px;
+                letter-spacing: 0.06em;
                 text-transform: uppercase;
-                letter-spacing: 0.5px;
+                line-height: 1.5;
+                white-space: nowrap;
             }
 
             .item-main {
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                gap: 12px;
+                max-width: 560px;
             }
 
             .item-title {
-                color: #e0e0e0;
-                font-size: 16px;
-                font-weight: 600;
-                line-height: 1.5;
-                cursor: pointer;
-                transition: color 0.15s ease;
-            }
-
-            .item-title:hover {
-                color: rgb(180, 180, 180);
+                color: rgba(255, 255, 255, 0.93);
+                font-size: 24px;
+                font-weight: 500;
+                line-height: 1.42;
+                letter-spacing: -0.05em;
             }
 
             .item-desc {
+                color: rgba(255, 255, 255, 0.58);
                 font-size: 13px;
                 line-height: 1.7;
-                color: rgb(130, 130, 130);
+                max-width: 520px;
+                letter-spacing: -0.01em;
             }
 
             .accent-link {
-                color: rgb(110, 110, 110);
+                color: var(--muted);
                 font-size: 12px;
                 width: fit-content;
-                border-bottom: 1px dashed rgb(80, 100, 100);
+                border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
                 transition: color 0.15s ease, border-color 0.15s ease;
-                margin-top: 4px;
+                line-height: 1.2;
+                text-transform: lowercase;
             }
 
             .accent-link:hover {
-                color: #e0e0e0;
-                border-bottom-color: #e0e0e0;
-            }
-
-            footer {
-                margin-top: auto;
-                padding-top: 60px;
-                padding-bottom: 60px;
-                width: 100%;
-                border-top: 1px solid rgba(255, 255, 255, 0.05);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .footer-link {
-                color: rgb(100, 100, 100);
-                font-size: 12px;
-                transition: color 0.2s;
-            }
-
-            .footer-link:hover {
-                color: #e0e0e0;
-            }
-
-            .copyright-text {
-                color: rgb(70, 70, 70);
-                font-size: 11px;
+                color: var(--text);
+                border-bottom-color: rgba(255, 255, 255, 0.8);
             }
 
             @keyframes pageFadeUp {
-                from { opacity: 0; transform: translateY(8px); }
-                to { opacity: 1; transform: translateY(0); }
+                from {
+                    opacity: 0;
+                    transform: translateY(8px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
 
-            .page-wrapper {
-                width: 100%;
-                animation: pageFadeUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-            }
-
-            @media (max-width: 600px) {
+            @media (max-width: 700px) {
                 body {
                     padding: 0 24px;
                 }
 
                 .main-wrapper {
-                    padding-top: 40px;
+                    padding-top: 26px;
                 }
 
                 .navdiv {
@@ -217,7 +220,7 @@
                 }
 
                 .navbar {
-                    margin-bottom: 80px;
+                    margin-bottom: 52px;
                 }
 
                 .navbar ul {
@@ -226,32 +229,35 @@
                     gap: 8px;
                 }
 
-                .navbar li a {
-                    font-size: 10px;
-                    letter-spacing: 1px;
+                .section-header-row {
+                    align-items: flex-end;
+                    gap: 12px;
+                }
+
+                .subtitle-note {
+                    white-space: normal;
+                    text-align: right;
                 }
 
                 .manifest-item {
                     flex-direction: column;
                     gap: 8px;
-                    padding: 16px 0;
                 }
 
                 .item-meta {
-                    min-width: unset;
+                    min-width: 0;
+                    padding-top: 0;
                 }
 
-                footer {
-                    flex-direction: column;
-                    gap: 16px;
-                    align-items: flex-start;
+                .item-main {
+                    max-width: 100%;
                 }
             }
         </style>
     </head>
     <body>
         <div class="main-wrapper">
-            <nav class="navbar">
+            <nav class="navbar" aria-label="Main navigation">
                 <div class="navdiv">
                     <div class="text-logo">david busha</div>
                     <ul>
@@ -271,23 +277,26 @@
                     </div>
 
                     <div class="manifest-list">
-                        <div class="manifest-item">
+                        <article class="manifest-item">
                             <div class="item-meta">[ 2026 / draft ]</div>
                             <div class="item-main">
                                 <h3 class="item-title">Deep Learning for Ethiopic-Script Recognition: A CNR with Emphasis on Historical Ge&apos;ez OCR</h3>
                                 <p class="item-desc">A critical review of deep learning approaches to Ethiopic-script recognition, examining existing methods, evaluation challenges, and opportunities for improving OCR of historical Ge&apos;ez manuscripts.</p>
-                                <a class="accent-link" href="#">read manuscript link</a>
+                                <a href="#" class="accent-link">read manuscript link</a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="manifest-item">
+                        <article class="manifest-item">
                             <div class="item-meta">[ 2026 / draft ]</div>
                             <div class="item-main">
                                 <h3 class="item-title">Cognitive Optimization: Structural Architecture of Focused Digital Ecosystems</h3>
                                 <p class="item-desc">Investigating behavioral constraints and data-reduction interfaces to document how minimalist software environments impact information filtering metrics in adolescents.</p>
-                                <a class="accent-link" href="#">read repository data</a>
+                                <a href="#" class="accent-link">read repository data</a>
                             </div>
-                             <div class="page-wrapper">
+                        </article>
+                    </div>
+                </section>
+
                 <section class="section-container">
                     <div class="section-header-row">
                         <h2>projects</h2>
@@ -295,15 +304,14 @@
                     </div>
 
                     <div class="manifest-list">
-                        <div class="manifest-item">
+                        <article class="manifest-item">
                             <div class="item-meta">[ 2026 / draft ]</div>
                             <div class="item-main">
-                                <h3 class="item-title">Deep Learning for Ethiopic-Script Recognition: A CNR with Emphasis on Historical Ge&apos;ez OCR</h3>
-                                <p class="item-desc">A critical review of deep learning approaches to Ethiopic-script recognition, examining existing methods, evaluation challenges, and opportunities for improving OCR of historical Ge&apos;ez manuscripts.</p>
-                                <a class="accent-link" href="#">read manuscript link</a>
+                                <h3 class="item-title">Local Knowledge Systems Archive</h3>
+                                <p class="item-desc">A structured collection of regional language resources, field notes, and annotation workflows intended to support long-term digital preservation and accessible historical inquiry.</p>
+                                <a href="#" class="accent-link">read project overview</a>
                             </div>
-                        </div>
-                            
+                        </article>
                     </div>
                 </section>
             </div>
