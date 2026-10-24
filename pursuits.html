@@ -3,32 +3,57 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
         <title>Pursuits | David Busha</title>
         <meta name="description" content="The official website of David Busha">
         <meta property="og:title" content="David Busha">
 
         <link rel="icon" type="image/png" href="dav.png">
-        
-        <style type="text/css">     
+
+        <style type="text/css">
+            :root {
+                --bg: rgb(10, 10, 10);
+                --text: rgb(140, 140, 140);
+                --text-strong: #e0e0e0;
+                --text-muted: rgb(100, 100, 100);
+                --link: rgb(110, 110, 110);
+                --link-hover: #e0e0e0;
+                --border: rgba(255, 255, 255, 0.08);
+                --dropdown-arrow: rgb(100, 100, 100);
+            }
+
+            @media (prefers-color-scheme: light) {
+                :root {
+                    --bg: rgb(248, 248, 246);
+                    --text: rgb(70, 70, 70);
+                    --text-strong: rgb(24, 24, 24);
+                    --text-muted: rgb(108, 108, 108);
+                    --link: rgb(88, 88, 88);
+                    --link-hover: rgb(18, 18, 18);
+                    --border: rgba(0, 0, 0, 0.08);
+                    --dropdown-arrow: rgb(110, 110, 110);
+                }
+            }
+
             * {
-                text-decoration: none; 
+                text-decoration: none;
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;
             }
 
             body {
-                background-color: rgb(10, 10, 10);
-                
+                background-color: var(--bg);
                 font-family: 'SF Mono', Monaco, Consolas, 'Fira Code', monospace;
-                color: rgb(140, 140, 140);
+                color: var(--text);
                 padding: 0 40px;
                 display: flex;
                 justify-content: center;
                 min-height: 100vh;
                 -webkit-font-smoothing: antialiased;
+                transition: background-color 0.25s ease, color 0.25s ease;
             }
-            
+
             .main-wrapper {
                 width: 100%;
                 max-width: 680px;
@@ -43,8 +68,8 @@
             }
 
             .navdiv {
-                display: flex; 
-                align-items: center; 
+                display: flex;
+                align-items: center;
                 justify-content: space-between;
                 width: 100%;
             }
@@ -52,7 +77,7 @@
             .text-logo {
                 font-size: 13px;
                 font-weight: 600;
-                color: #e0e0e0;
+                color: var(--text-strong);
                 text-transform: uppercase;
                 letter-spacing: 2px;
             }
@@ -64,8 +89,8 @@
             }
 
             .navbar li a {
-                color: rgb(110, 110, 110); 
-                font-size: 11px; 
+                color: var(--link);
+                font-size: 11px;
                 text-transform: uppercase;
                 letter-spacing: 1.5px;
                 font-weight: 500;
@@ -73,18 +98,16 @@
             }
 
             .navbar li a:hover, .navbar li a.active {
-                color: #e0e0e0;
+                color: var(--link-hover);
             }
 
             .profile-header-img {
                 width: 70px;
                 height: 70px;
-                
                 object-fit: cover;
                 display: block;
                 margin-bottom: 40px;
                 filter: grayscale(20%);
-                
             }
 
             .content-section {
@@ -99,23 +122,23 @@
                 font-size: 14px;
                 line-height: 1.8;
                 font-weight: normal;
-                color: rgb(145, 145, 145);
+                color: var(--text);
             }
 
             .accent-link {
-                color: #e0e0e0;
-                border-bottom: 1px dashed rgb(100, 100, 100);
+                color: var(--text-strong);
+                border-bottom: 1px dashed var(--link);
                 transition: color 0.15s ease, border-color 0.15s ease;
             }
 
             .accent-link:hover {
-                color: rgb(180, 180, 180);
-                border-bottom-color: #e0e0e0;
+                color: var(--link-hover);
+                border-bottom-color: var(--link-hover);
             }
-            
+
             .section-label {
                 font-size: 13px;
-                color: #e0e0e0;
+                color: var(--text-strong);
                 font-weight: 600;
                 margin-top: 20px;
                 margin-bottom: 4px;
@@ -135,7 +158,7 @@
             }
 
             .item-tag {
-                color: rgb(100, 100, 100);
+                color: var(--text-muted);
                 margin-right: 8px;
             }
 
@@ -144,27 +167,27 @@
                 padding-top: 60px;
                 padding-bottom: 60px;
                 width: 100%;
-                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                border-top: 1px solid var(--border);
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
             }
 
             .footer-link {
-                color: rgb(100, 100, 100);
+                color: var(--text-muted);
                 font-size: 12px;
                 transition: color 0.2s;
             }
 
             .footer-link:hover {
-                color: #e0e0e0;
+                color: var(--link-hover);
             }
 
             .copyright-text {
                 color: rgb(70, 70, 70);
                 font-size: 11px;
             }
-                
+
             @keyframes pageFadeUp {
                 from { opacity: 0; transform: translateY(8px); }
                 to { opacity: 1; transform: translateY(0); }
@@ -214,124 +237,128 @@
                     align-items: flex-start;
                 }
             }
-            
-.dropdown-container summary::-webkit-details-marker {
-  display: none;
-}
-.dropdown-container summary {
-  list-style: none;
-}
 
-.dropdown-trigger {
-  font-size: 14px;
-  color: #e0e0e0;
-  font-weight: 600;
-  margin-top: 35px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  user-select: none;
-}
+            .dropdown-container summary::-webkit-details-marker {
+                display: none;
+            }
+            .dropdown-container summary {
+                list-style: none;
+            }
 
-.arrow {
-  font-size: 10px;
-  color: rgb(100, 100, 100);
-  transition: transform 0.2s ease;
-  display: inline-block;
-}
+            .dropdown-trigger {
+                font-size: 14px;
+                color: var(--text-strong);
+                font-weight: 600;
+                margin-top: 35px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                user-select: none;
+            }
 
-.dropdown-container[open] .arrow {
-  transform: rotate(90deg);
-  color: #e0e0e0;
-}
+            .arrow {
+                font-size: 10px;
+                color: var(--dropdown-arrow);
+                transition: transform 0.2s ease;
+                display: inline-block;
+            }
 
-.dropdown-content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 15px;
-  padding-left: 20px; 
-}
+            .dropdown-container[open] .arrow {
+                transform: rotate(90deg);
+                color: var(--text-strong);
+            }
+
+            .dropdown-content {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                margin-top: 15px;
+                padding-left: 20px;
+            }
         </style>
     </head>
     <body>
-       
         <div class="main-wrapper">
             <nav class="navbar">
                 <div class="navdiv">
                     <div class="text-logo">david busha</div>
                     <ul>
-                         <li><a href="/">home</a></li>
-                         <li><a href="/pursuits"class="active">pursuits</a></li>
-                         <li><a href="/systems">systems</a></li>
-                         <li><a href="/research">research</a></li>
-                     </ul>
+                        <li><a href="/">home</a></li>
+                        <li><a href="/pursuits" class="active">pursuits</a></li>
+                        <li><a href="/systems">systems</a></li>
+                        <li><a href="/research">research</a></li>
+                    </ul>
                 </div>
             </nav>
 
             <div class="page-wrapper">
-                
                 <main class="content-section">
-                    
                     <p class="p1">
-                        I think of my favorite pursuits not as separate hobbies, but as different ways to challenge my mind and stay grounded. My main focus is software engineering and data science—building tools that make sense of messy, real-world data. But I balance that technical world by diving into literature, writing, and watching competitive football.
+                        I think of my favorite pursuits not as separate hobbies, but as different ways to challenge my mind and stay grounded. My main focus is software engineering and data science, but my personal interests are much broader than that.
                     </p>
 
                     <p class="p1">
-                        To me, these worlds aren't isolated. The pattern recognition and tactical strategy I see when analyzing a football play, the deep focus I get from a tough book, and the clarity I find in daily journaling all feed right back into how I write code. They help me look at data landscapes not just as numbers, but as puzzles waiting for creative, structured solutions.
+                        To me, these worlds aren't isolated. The pattern recognition and tactical strategy I see when analyzing a football play, the deep focus I get from a tough book, and the creative problem-solving in software all flow into the same system of thought.
                     </p>
 
-                   <details class="dropdown-container">
-                        <summary class="dropdown-trigger">
-                            <span class="arrow">▶</span>Football
-                                </summary>
-                <div class="dropdown-content">
-                 <p class="p1">
-                 I'm a football fan, or as some would say "soccer". I support Liverpool F.C. and watch their games in the <a class="accent-link" href="https://www.premierleague.com/en"target="_blank" rel="noopener noreferrer">Premier League</a>, <a class="accent-link" href="https://www.uefa.com"target="_blank" rel="noopener noreferrer">Champions League</a> and other competitions whenever I have the time. I got into football around the 6th grade and have been following it closely ever since. 
-                     </p>
-                     <p class="p1">
-                          Under Fenway Sports Group, Liverpool famously became the pioneer of heavy data analytics in global sports. They treat football like a computer science problem—optimizing spatial geometry, tracking passing matrices, and using predictive models to scout undervalued talent like Mo Salah. As someone interested in CS, supporting LFC means appreciating efficiency algorithms and system optimization playing out in real-time on grass, as well as the tight-knit community in Merseyside and in Gondar.
-                             </p>
-                            </div>
-                            </details>
-
-                     <details class="dropdown-container">
-                        <summary class="dropdown-trigger">
-                        <span class="arrow">▶</span>Programming
-                        </summary>
-                <div class="dropdown-content">
-                 <p class="p1">
-                It’s probably obvious by now, but I love tinkering with technology and building new things from scratch. Honestly, the main reason I built this entire website was just to put my coding skills to the test and see what I could create on my own. While this site gave me a solid foundation, I see it as just the starting point.</p>
-                     <p class="p1">
-                     I’m planning to dive deeper into lower-level mechanics and data scripting next, expanding my toolkit into languages like C++, Python, and more advanced JavaScript to build faster, more complex systems.
-                     </p>
-                            </div>
-                            </details>
-
-                             <details class="dropdown-container">
-                        <summary class="dropdown-trigger">
-                        <span class="arrow">▶</span>Journaling
-                        </summary>
-                <div class="dropdown-content">
-                 <p class="p1">
-                I started journaling a few months ago, and honestly, it’s been incredibly refreshing to get my thoughts out of my head and onto a piece of paper. Whenever I have a lot on my mind, I just jot down what's important. Taking that breather helps me look back and reflect on what I was thinking with a lot more clarity. It’s become a simple but essential way for me to slow down, organize my goals, and stay grounded.</p>
-
-                    <p class="p1">
-                The habits of journaling and tracking my days became so engrained in my routine that I decided to take it to the next level: I created an entire program for it. Built purely for the fun of exploration, <i><b>Inkwell</b></i> is an esoteric scripting language that lets you log your thoughts and map your lifestyle metrics directly inside the terminal. You can download it for <a class="accent-link" href="https://github.com/davidbushapro/Inkwell/releases/tag/v.1.0.0"target="_blank" rel="noopener noreferrer">macOS or Windows</a>, give it a try!</p>
-                </div>
-                </details>
                     <details class="dropdown-container">
                         <summary class="dropdown-trigger">
-                        <span class="arrow">▶</span>Reading
+                            <span class="arrow">▶</span>Football
                         </summary>
-                <div class="dropdown-content">
-                 <p class="p1">
-                I wouldn’t call this my biggest interest by any means, but I do like reading from time to time—whether it’s a regular book or the Bible. Honestly, it's actually a good way to step away from screens, get my mind off of things, and find some peace and quiet. But beyond that, reading gives me a chance to slow down and appreciate how stories are put together.
-                     <p class="p1">
-                     Whether I'm looking at a modern novel or diving into the historical texts and moral lessons of scripture, I like seeing how centuries-old writings can still teach us about human behavior and connect people across generations today.
-                     </p>
-                           </div>
-                            </details>
-         </body>
+                        <div class="dropdown-content">
+                            <p class="p1">
+                                I'm a football fan, or as some would say "soccer". I support Liverpool F.C. and watch their games in the context of tactical structure, analytics, and identity. The game is a fascinating mix of creativity, discipline, and decision-making under pressure.
+                            </p>
+                            <p class="p1">
+                                Under Fenway Sports Group, Liverpool famously became the pioneer of heavy data analytics in global sports. They treat football like a computer science problem—optimizing movement, patterns, and decision quality through measurement and structure.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="dropdown-container">
+                        <summary class="dropdown-trigger">
+                            <span class="arrow">▶</span>Programming
+                        </summary>
+                        <div class="dropdown-content">
+                            <p class="p1">
+                                It’s probably obvious by now, but I love tinkering with technology and building new things from scratch. Honestly, the main reason I built this entire website was just to put my ideas in one place and keep learning through practical design.
+                            </p>
+                            <p class="p1">
+                                I’m planning to dive deeper into lower-level mechanics and data scripting next, expanding my toolkit into languages like C++, Python, and more advanced JavaScript to build more robust systems and workflows.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="dropdown-container">
+                        <summary class="dropdown-trigger">
+                            <span class="arrow">▶</span>Journaling
+                        </summary>
+                        <div class="dropdown-content">
+                            <p class="p1">
+                                I started journaling a few months ago, and honestly, it’s been incredibly refreshing to get my thoughts out of my head and onto a piece of paper. Whenever I have a lot on my mind, writing helps me process it in a calmer, more structured way.
+                            </p>
+                            <p class="p1">
+                                The habits of journaling and tracking my days became so engrained in my routine that I decided to take it to the next level: I created an entire program for it. Built purely for tracking thoughts, routines, and progress, it became a personal system for reflection and self-improvement.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="dropdown-container">
+                        <summary class="dropdown-trigger">
+                            <span class="arrow">▶</span>Reading
+                        </summary>
+                        <div class="dropdown-content">
+                            <p class="p1">
+                                I wouldn’t call this my biggest interest by any means, but I do like reading from time to time—whether it’s a regular book or the Bible. Honestly, it’s a good way to slow down and engage my mind in a different way than screens and constant notifications.
+                            </p>
+                            <p class="p1">
+                                Whether I'm looking at a modern novel or diving into the historical texts and moral lessons of scripture, I like seeing how centuries-old writings can still teach us about humanity, logic, discipline, and purpose.
+                            </p>
+                        </div>
+                    </details>
+                </main>
+            </div>
+        </div>
+    </body>
 </html>
