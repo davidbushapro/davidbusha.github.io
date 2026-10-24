@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
         <title>Research | David Busha</title>
         <meta name="description" content="The official website of David Busha">
 
@@ -11,7 +12,6 @@
         <style type="text/css">
             :root {
                 --bg: rgb(10, 10, 10);
-                --bg-soft: rgba(255, 255, 255, 0.02);
                 --text: rgb(140, 140, 140);
                 --text-strong: #e0e0e0;
                 --text-muted: rgb(100, 100, 100);
@@ -20,25 +20,20 @@
                 --link-hover: #e0e0e0;
                 --border: rgba(255, 255, 255, 0.08);
                 --item-border: rgba(255, 255, 255, 0.03);
-                --toggle-bg: rgba(255, 255, 255, 0.04);
-                --toggle-border: rgba(255, 255, 255, 0.08);
-                --toggle-thumb: rgb(20, 20, 20);
             }
 
-            body.light-mode {
-                --bg: rgb(245, 245, 240);
-                --bg-soft: rgba(0, 0, 0, 0.02);
-                --text: rgb(70, 70, 70);
-                --text-strong: rgb(25, 25, 25);
-                --text-muted: rgb(110, 110, 110);
-                --text-muted-strong: rgb(90, 90, 90);
-                --link: rgb(80, 80, 80);
-                --link-hover: rgb(15, 15, 15);
-                --border: rgba(0, 0, 0, 0.08);
-                --item-border: rgba(0, 0, 0, 0.05);
-                --toggle-bg: rgba(0, 0, 0, 0.04);
-                --toggle-border: rgba(0, 0, 0, 0.08);
-                --toggle-thumb: rgb(255, 255, 255);
+            @media (prefers-color-scheme: light) {
+                :root {
+                    --bg: rgb(248, 248, 246);
+                    --text: rgb(70, 70, 70);
+                    --text-strong: rgb(24, 24, 24);
+                    --text-muted: rgb(108, 108, 108);
+                    --text-muted-strong: rgb(90, 90, 90);
+                    --link: rgb(88, 88, 88);
+                    --link-hover: rgb(18, 18, 18);
+                    --border: rgba(0, 0, 0, 0.08);
+                    --item-border: rgba(0, 0, 0, 0.05);
+                }
             }
 
             * {
@@ -78,7 +73,6 @@
                 align-items: center;
                 justify-content: space-between;
                 width: 100%;
-                gap: 24px;
             }
 
             .text-logo {
@@ -92,7 +86,6 @@
             .navbar ul {
                 list-style: none;
                 display: flex;
-                align-items: center;
                 gap: 24px;
             }
 
@@ -107,54 +100,6 @@
 
             .navbar li a:hover, .navbar li a.active {
                 color: var(--link-hover);
-            }
-
-            .theme-toggle {
-                border: 1px solid var(--toggle-border);
-                background: var(--toggle-bg);
-                color: var(--text-strong);
-                border-radius: 999px;
-                display: inline-flex;
-                align-items: center;
-                gap: 10px;
-                padding: 7px 12px;
-                cursor: pointer;
-                transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-            }
-
-            .theme-toggle:hover {
-                transform: translateY(-1px);
-            }
-
-            .theme-toggle-track {
-                position: relative;
-                width: 28px;
-                height: 16px;
-                border-radius: 999px;
-                background: rgba(255, 255, 255, 0.08);
-                display: inline-block;
-            }
-
-            .theme-toggle-thumb {
-                position: absolute;
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                top: 3px;
-                left: 3px;
-                background: var(--toggle-thumb);
-                transition: transform 0.2s ease, background-color 0.2s ease;
-            }
-
-            body.light-mode .theme-toggle-thumb {
-                transform: translateX(12px);
-            }
-
-            .theme-toggle-label {
-                font-size: 10px;
-                letter-spacing: 1.2px;
-                text-transform: uppercase;
-                color: var(--text);
             }
 
             .section-container {
@@ -314,10 +259,6 @@
                     letter-spacing: 1px;
                 }
 
-                .theme-toggle {
-                    align-self: flex-end;
-                }
-
                 .manifest-item {
                     flex-direction: column;
                     gap: 8px;
@@ -347,10 +288,6 @@
                         <li><a href="/systems">systems</a></li>
                         <li><a href="/research" class="active">research</a></li>
                     </ul>
-                    <button class="theme-toggle" type="button" aria-label="Toggle dark and light mode">
-                        <span class="theme-toggle-track"><span class="theme-toggle-thumb"></span></span>
-                        <span class="theme-toggle-label">dark</span>
-                    </button>
                 </div>
             </nav>
 
@@ -381,29 +318,5 @@
                 </section>
             </div>
         </div>
-
-        <script>
-            const body = document.body;
-            const toggleButton = document.querySelector('.theme-toggle');
-            const toggleLabel = document.querySelector('.theme-toggle-label');
-
-            const applyTheme = (isLight) => {
-                body.classList.toggle('light-mode', isLight);
-                toggleLabel.textContent = isLight ? 'light' : 'dark';
-            };
-
-            const storedTheme = localStorage.getItem('theme');
-            if (storedTheme === 'light') {
-                applyTheme(true);
-            } else {
-                applyTheme(false);
-            }
-
-            toggleButton.addEventListener('click', () => {
-                const isLight = !body.classList.contains('light-mode');
-                localStorage.setItem('theme', isLight ? 'light' : 'dark');
-                applyTheme(isLight);
-            });
-        </script>
     </body>
 </html>
