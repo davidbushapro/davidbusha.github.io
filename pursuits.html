@@ -101,15 +101,6 @@
                 color: var(--link-hover);
             }
 
-            .profile-header-img {
-                width: 70px;
-                height: 70px;
-                object-fit: cover;
-                display: block;
-                margin-bottom: 40px;
-                filter: grayscale(20%);
-            }
-
             .content-section {
                 display: flex;
                 flex-direction: column;
@@ -125,41 +116,58 @@
                 color: var(--text);
             }
 
-            .accent-link {
-                color: var(--text-strong);
-                border-bottom: 1px dashed var(--link);
-                transition: color 0.15s ease, border-color 0.15s ease;
+            .dropdown-container {
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.01);
+                overflow: hidden;
             }
 
-            .accent-link:hover {
-                color: var(--link-hover);
-                border-bottom-color: var(--link-hover);
+            .dropdown-container summary::-webkit-details-marker {
+                display: none;
             }
 
-            .section-label {
-                font-size: 13px;
+            .dropdown-container summary {
+                list-style: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 18px 18px;
                 color: var(--text-strong);
+                font-size: 14px;
                 font-weight: 600;
-                margin-top: 20px;
-                margin-bottom: 4px;
+                user-select: none;
+                transition: color 0.2s ease;
             }
 
-            .appearances-list {
+            .dropdown-container summary:hover {
+                color: var(--link-hover);
+            }
+
+            .arrow {
+                font-size: 10px;
+                color: var(--dropdown-arrow);
+                transition: transform 0.2s ease;
+                display: inline-block;
+                transform: rotate(0deg);
+            }
+
+            .dropdown-container[open] .arrow {
+                transform: rotate(90deg);
+                color: var(--text-strong);
+            }
+
+            .dropdown-content {
                 display: flex;
                 flex-direction: column;
-                gap: 16px;
-                margin-top: 10px;
-                list-style: none;
+                gap: 18px;
+                padding: 0 18px 20px;
             }
 
-            .appearance-item {
-                font-size: 14px;
-                line-height: 1.6;
-            }
-
-            .item-tag {
-                color: var(--text-muted);
-                margin-right: 8px;
+            .dropdown-content .p1 {
+                font-size: 13px;
+                line-height: 1.8;
             }
 
             footer {
@@ -222,59 +230,11 @@
                     font-size: 10px;
                     letter-spacing: 1px;
                 }
-                .manifest-item {
-                    flex-direction: column;
-                    gap: 8px;
-                    padding: 16px 0;
-                }
-
-                .item-meta {
-                    min-width: unset;
-                }
                 footer {
                     flex-direction: column;
                     gap: 16px;
                     align-items: flex-start;
                 }
-            }
-
-            .dropdown-container summary::-webkit-details-marker {
-                display: none;
-            }
-            .dropdown-container summary {
-                list-style: none;
-            }
-
-            .dropdown-trigger {
-                font-size: 14px;
-                color: var(--text-strong);
-                font-weight: 600;
-                margin-top: 35px;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                user-select: none;
-            }
-
-            .arrow {
-                font-size: 10px;
-                color: var(--dropdown-arrow);
-                transition: transform 0.2s ease;
-                display: inline-block;
-            }
-
-            .dropdown-container[open] .arrow {
-                transform: rotate(90deg);
-                color: var(--text-strong);
-            }
-
-            .dropdown-content {
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-                margin-top: 15px;
-                padding-left: 20px;
             }
         </style>
     </head>
