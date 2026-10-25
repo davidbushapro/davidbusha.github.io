@@ -177,27 +177,27 @@
                 color: var(--text);
             }
 
-            .status-row {
-                border: none;
-                background: transparent;
-                margin: 0;
-                padding-top: 14px;
+            .status-block {
+                display: flex;
+                align-items: flex-start;
+                gap: 18px;
+                width: 100%;
+                margin-top: 20px;
+                padding-top: 12px;
+                border-top: 1px solid var(--border);
             }
 
-            .status-row .dropdown-summary {
-                padding: 0;
-                border-bottom: 1px solid var(--border);
-                padding-bottom: 12px;
-                background: transparent;
-                color: var(--text-strong);
+            .status-label {
                 font-size: 12px;
+                color: var(--text-strong);
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                min-width: 72px;
+                padding-top: 2px;
             }
 
-            .status-row .dropdown-content {
-                padding: 12px 0 0 0;
-            }
-
-            .status-row .dropdown-content p {
+            .status-copy {
+                flex: 1;
                 font-size: 13px;
                 line-height: 1.8;
                 color: var(--text);
@@ -269,6 +269,11 @@
                     letter-spacing: 1px;
                 }
 
+                .status-block {
+                    flex-direction: column;
+                    gap: 8px;
+                }
+
                 footer {
                     flex-direction: column;
                     gap: 16px;
@@ -308,14 +313,12 @@
                         </div>
                     </details>
 
-                    <details open class="status-row">
-                        <summary class="dropdown-summary">[ status ]</summary>
-                        <div class="dropdown-content">
-                            <p>
-                                This section is intentionally quiet for now. It is a place for future writing to gather: reflections on attention, systems, and intellectual life as they develop over time.
-                            </p>
+                    <div class="status-block">
+                        <div class="status-label">[ status ]</div>
+                        <div class="status-copy">
+                            This section is intentionally quiet for now. It is a place for future writing to gather: reflections on attention, systems, and intellectual life as they develop over time.
                         </div>
-                    </details>
+                    </div>
                 </section>
             </div>
         </div>
