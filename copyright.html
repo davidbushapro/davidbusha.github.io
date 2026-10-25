@@ -1,1 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="dark light">
+        <title>Copyright | David Busha</title>
+        <meta name="description" content="The official website of David Busha">
+        <meta property="og:title" content="David Busha">
 
+        <link rel="icon" type="image/png" href="david's-coffee-favico.png">
+
+        <style type="text/css">
+            :root {
+                --bg: rgb(10, 10, 10);
+                --text: rgb(140, 140, 140);
+                --text-strong: #e0e0e0;
+                --text-muted: rgb(100, 100, 100);
+                --text-muted-strong: rgb(90, 90, 90);
+                --link: rgb(110, 110, 110);
+                --link-hover: #e0e0e0;
+                --border: rgba(255, 255, 255, 0.08);
+                --item-border: rgba(255, 255, 255, 0.03);
+                --accent: #e0e0e0;
+            }
+
+            @media (prefers-color-scheme: light) {
+                :root {
+                    --bg: rgb(248, 248, 246);
+                    --text: rgb(70, 70, 70);
+                    --text-strong: rgb(24, 24, 24);
+                    --text-muted: rgb(108, 108, 108);
+                    --text-muted-strong: rgb(90, 90, 90);
+                    --link: rgb(88, 88, 88);
+                    --link-hover: rgb(18, 18, 18);
+                    --border: rgba(0, 0, 0, 0.08);
+                    --item-border: rgba(0, 0, 0, 0.05);
+                    --accent: rgb(24, 24, 24);
+                }
+            }
+
+            * {
+                text-decoration: none;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background-color: var(--bg);
+                font-family: 'SF Mono', Monaco, Consolas, 'Fira Code', monospace;
+                color: var(--text);
+                padding: 0 40px;
+                display: flex;
+                justify-content: center;
+                min-height: 100vh;
+                -webkit-font-smoothing: antialiased;
+                transition: background-color 0.25s ease, color 0.25s ease;
+            }
+
+            .main-wrapper {
+                width: 100%;
+                max-width: 680px;
+                display: flex;
+                flex-direction: column;
+                padding-top: 60px;
+            }
+
+            .navbar {
+                width: 100%;
+                margin-bottom: 120px;
+            }
+
+            .navdiv {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .text-logo {
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--text-strong);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+
+            .navbar ul {
+                list-style: none;
+                display: flex;
+                gap: 24px;
+            }
+
+            .navbar li a {
+                color: var(--link);
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                font-weight: 500;
+                transition: color 0.2s ease;
+            }
+
+            .navbar li a:hover, .navbar li a.active {
+                color: var(--link-hover);
+            }
+
+            .profile-header-img {
+                width: 70px;
+                height: 70px;
+                object-fit: cover;
+                display: block;
+                margin-bottom: 40px;
+                filter: grayscale(20%);
+            }
+
+            .content-section {
+                display: flex;
+                flex-direction: column;
+                gap: 28px;
+                width: 100%;
+                margin-bottom: 80px;
+            }
+
+            .p1 {
+                font-size: 14px;
+                line-height: 1.8;
+                font-weight: normal;
+                color: var(--text);
+            }
+
+            .accent-link {
+                color: var(--text-strong);
+                border-bottom: 1px dashed var(--link);
+                transition: color 0.15s ease, border-color 0.15s ease;
+            }
+
+            .accent-link:hover {
+                color: var(--link-hover);
+                border-bottom-color: var(--link-hover);
+            }
+
+            .section-label {
+                font-size: 13px;
+                color: var(--text-strong);
+                font-weight: 600;
+                margin-top: 20px;
+                margin-bottom: 4px;
+            }
+
+            .appearances-list {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                margin-top: 10px;
+                list-style: none;
+            }
+
+            .appearance-item {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .item-tag {
+                color: var(--text-muted);
+                margin-right: 8px;
+            }
+
+            footer {
+                margin-top: auto;
+                padding-top: 60px;
+                padding-bottom: 60px;
+                width: 100%;
+                border-top: 1px solid var(--border);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .footer-link {
+                color: var(--text-muted);
+                font-size: 12px;
+                transition: color 0.2s;
+            }
+
+            .footer-link:hover {
+                color: var(--link-hover);
+            }
+
+            .copyright-text {
+                color: rgb(70, 70, 70);
+                font-size: 11px;
+            }
+
+            @keyframes pageFadeUp {
+                from { opacity: 0; transform: translateY(8px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .page-wrapper {
+                width: 100%;
+                animation: pageFadeUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            }
+
+            @media (max-width: 600px) {
+                body {
+                    padding: 0 24px;
+                }
+                .main-wrapper {
+                    padding-top: 40px;
+                }
+                .navdiv {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 24px;
+                }
+                .navbar {
+                    margin-bottom: 80px;
+                }
+                .navbar ul {
+                    width: 100%;
+                    justify-content: space-between;
+                    gap: 8px;
+                }
+                .navbar li a {
+                    font-size: 10px;
+                    letter-spacing: 1px;
+                }
+                footer {
+                    flex-direction: column;
+                    gap: 16px;
+                    align-items: flex-start;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="main-wrapper">
+            <nav class="navbar">
+                <div class="navdiv">
+                    <div class="text-logo">david busha</div>
+                    <ul>
+                        <li><a href="/">home</a></li>
+                        <li><a href="/pursuits">pursuits</a></li>
+                        <li><a href="/systems">systems</a></li>
+                        <li><a href="/research">research</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="page-wrapper">
+                <main class="content-section">
+                    <p class="p1">
+                        © 2025 David Busha. All original content on this website—including text, structure, design, branding, and written expression—is protected by copyright law and may not be reproduced, distributed, modified, or reused without written permission.
+                    </p>
+
+                    <p class="p1">
+                        This site is a personal digital archive and intellectual workspace. The creative work expressed here, whether in essays, notes, frameworks, or visual presentation, reflects my own authorship and remains the exclusive property of David Busha unless otherwise stated.
+                    </p>
+
+                    <div class="section-label">Ownership</div>
+
+                    <p class="p1">
+                        Unless a specific item clearly indicates a different source, all original material published on this domain is owned by David Busha. This includes written articles, page layouts, code snippets, visual styling, navigation logic, and the overall composition of the site.
+                    </p>
+
+                    <div class="section-label">Permitted use</div>
+
+                    <p class="p1">
+                        Personal reading, sharing of links, and brief quotations for commentary or scholarly reference are generally permitted when accompanied by clear attribution and a direct link back to the original page. I encourage thoughtful engagement with the ideas here, but not their extraction or reuse in ways that undermine authorship or context.
+                    </p>
+
+                    <div class="section-label">Restrictions</div>
+
+                    <p class="p1">
+                        Without prior written consent, you may not copy, mirror, redistribute, republish, transform, scrape, or commercially reuse any portion of this website. This includes copying text into other publications, reproducing layouts, embedding the site’s content elsewhere, or using my work in derivative materials without explicit permission.
+                    </p>
+
+                    <div class="section-label">Third-party materials</div>
+
+                    <p class="p1">
+                        Some materials referenced or linked from this website may be owned by third parties and are subject to their own copyright terms. Where applicable, those rights remain with their respective owners. I do not claim ownership over external sources, research references, or linked media unless clearly stated.
+                    </p>
+
+                    <div class="section-label">Contact</div>
+
+                    <p class="p1">
+                        To request permission for reuse, licensing, collaboration, or any other copyright-related inquiry, please contact me at <a class="accent-link" href="mailto:david@davidbusha.com">david@davidbusha.com</a>. I am generally open to thoughtful inquiries and will respond as promptly as possible.
+                    </p>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
