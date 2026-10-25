@@ -16,11 +16,10 @@
                 --text: rgb(140, 140, 140);
                 --text-strong: #e0e0e0;
                 --text-muted: rgb(100, 100, 100);
-                --text-muted-strong: rgb(90, 90, 90);
                 --link: rgb(110, 110, 110);
                 --link-hover: #e0e0e0;
                 --border: rgba(255, 255, 255, 0.08);
-                --item-border: rgba(255, 255, 255, 0.03);
+                --dropdown-arrow: rgb(100, 100, 100);
             }
 
             @media (prefers-color-scheme: light) {
@@ -29,11 +28,10 @@
                     --text: rgb(70, 70, 70);
                     --text-strong: rgb(24, 24, 24);
                     --text-muted: rgb(108, 108, 108);
-                    --text-muted-strong: rgb(90, 90, 90);
                     --link: rgb(88, 88, 88);
                     --link-hover: rgb(18, 18, 18);
                     --border: rgba(0, 0, 0, 0.08);
-                    --item-border: rgba(0, 0, 0, 0.05);
+                    --dropdown-arrow: rgb(110, 110, 110);
                 }
             }
 
@@ -103,6 +101,15 @@
                 color: var(--link-hover);
             }
 
+            .profile-header-img {
+                width: 70px;
+                height: 70px;
+                object-fit: cover;
+                display: block;
+                margin-bottom: 40px;
+                filter: grayscale(20%);
+            }
+
             .content-section {
                 display: flex;
                 flex-direction: column;
@@ -118,107 +125,67 @@
                 color: var(--text);
             }
 
-            .section-container {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                margin-bottom: 80px;
-            }
-
-            .section-header-row {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                border-bottom: 1px solid var(--border);
-                padding-bottom: 12px;
-                margin-bottom: 10px;
-            }
-
-            h2 {
+            .accent-link {
                 color: var(--text-strong);
-                font-size: 18px;
+                border-bottom: 1px dashed var(--link);
+                transition: color 0.15s ease, border-color 0.15s ease;
+            }
+
+            .accent-link:hover {
+                color: var(--link-hover);
+                border-bottom-color: var(--link-hover);
+            }
+
+            .section-label {
+                font-size: 13px;
+                color: var(--text-strong);
                 font-weight: 600;
-                text-transform: lowercase;
+                margin-top: 20px;
+                margin-bottom: 4px;
             }
 
-            .subtitle-note {
-                font-size: 12px;
-                color: var(--text-muted);
-            }
-
-            .manifest-list {
+            .appearances-list {
                 display: flex;
                 flex-direction: column;
-                width: 100%;
-            }
-
-            .manifest-item {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                padding: 20px 0;
-                border-bottom: 1px solid var(--item-border);
-            }
-
-            .manifest-item summary::-webkit-details-marker {
-                display: none;
-            }
-
-            .manifest-item summary {
+                gap: 16px;
+                margin-top: 10px;
                 list-style: none;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 12px;
-                cursor: pointer;
-                user-select: none;
             }
 
-            .item-title {
-                color: var(--text-strong);
-                font-size: 16px;
-                font-weight: 600;
-                line-height: 1.5;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+            .appearance-item {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .item-tag {
+                color: var(--text-muted);
+                margin-right: 8px;
+            }
+
+            footer {
+                margin-top: auto;
+                padding-top: 60px;
+                padding-bottom: 60px;
                 width: 100%;
-                gap: 12px;
+                border-top: 1px solid var(--border);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
-            .item-title:hover {
+            .footer-link {
+                color: var(--text-muted);
+                font-size: 12px;
+                transition: color 0.2s;
+            }
+
+            .footer-link:hover {
                 color: var(--link-hover);
             }
 
-            .item-desc {
-                font-size: 13px;
-                line-height: 1.7;
-                color: var(--text);
-            }
-
-            .dropdown-content {
-                display: flex;
-                flex-direction: column;
-                gap: 18px;
-                padding-top: 14px;
-            }
-
-            .summary-arrow {
-                font-size: 10px;
-                color: var(--text-muted);
-                transition: transform 0.2s ease;
-                display: inline-block;
-                flex-shrink: 0;
-            }
-
-            .manifest-item[open] .summary-arrow {
-                transform: rotate(90deg);
-                color: var(--text-strong);
-            }
-
-            .page-wrapper {
-                width: 100%;
-                animation: pageFadeUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            .copyright-text {
+                color: rgb(70, 70, 70);
+                font-size: 11px;
             }
 
             @keyframes pageFadeUp {
@@ -226,35 +193,88 @@
                 to { opacity: 1; transform: translateY(0); }
             }
 
+            .page-wrapper {
+                width: 100%;
+                animation: pageFadeUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            }
+
             @media (max-width: 600px) {
                 body {
                     padding: 0 24px;
                 }
-
                 .main-wrapper {
                     padding-top: 40px;
                 }
-
                 .navdiv {
                     flex-direction: column;
                     align-items: flex-start;
                     gap: 24px;
                 }
-
                 .navbar {
                     margin-bottom: 80px;
                 }
-
                 .navbar ul {
                     width: 100%;
                     justify-content: space-between;
                     gap: 8px;
                 }
-
                 .navbar li a {
                     font-size: 10px;
                     letter-spacing: 1px;
                 }
+                .manifest-item {
+                    flex-direction: column;
+                    gap: 8px;
+                    padding: 16px 0;
+                }
+
+                .item-meta {
+                    min-width: unset;
+                }
+                footer {
+                    flex-direction: column;
+                    gap: 16px;
+                    align-items: flex-start;
+                }
+            }
+
+            .dropdown-container summary::-webkit-details-marker {
+                display: none;
+            }
+            .dropdown-container summary {
+                list-style: none;
+            }
+
+            .dropdown-trigger {
+                font-size: 14px;
+                color: var(--text-strong);
+                font-weight: 600;
+                margin-top: 35px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                user-select: none;
+            }
+
+            .arrow {
+                font-size: 10px;
+                color: var(--dropdown-arrow);
+                transition: transform 0.2s ease;
+                display: inline-block;
+            }
+
+            .dropdown-container[open] .arrow {
+                transform: rotate(90deg);
+                color: var(--text-strong);
+            }
+
+            .dropdown-content {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                margin-top: 15px;
+                padding-left: 20px;
             }
         </style>
     </head>
@@ -275,58 +295,69 @@
 
             <div class="page-wrapper">
                 <main class="content-section">
-                    <section class="section-container">
-                        <div class="section-header-row">
-                            <h2>pursuits</h2>
-                            <span class="subtitle-note">interests & habits</span>
+                    <p class="p1">
+                        I think of my favorite pursuits not as separate hobbies, but as different ways to challenge my mind and stay grounded. Although my main focuses are software engineering, neuroscience, and entrepreneurship, I still invest time and energy into other areas that sharpen me in different ways.
+                    </p>
+
+                    <p class="p1">
+                        To me, these worlds aren't isolated. The pattern recognition and tactical strategy I see when analyzing a football play, the deep focus I get from a tough book, and the creative problem solving I engage in with software all connect under the same mindset: learning how systems work and how to improve them.
+                    </p>
+
+                    <details class="dropdown-container">
+                        <summary class="dropdown-trigger">
+                            <span class="arrow">▶</span>Football
+                        </summary>
+                        <div class="dropdown-content">
+                            <p class="p1">
+                                I'm a football fan, or as some would say "soccer". I support Liverpool F.C. and watch their games in the context of tactical structure, analytics, and identity. The sport feels like a study in composition, teamwork, and team-level strategy.
+                            </p>
+                            <p class="p1">
+                                Under Fenway Sports Group, Liverpool famously became the pioneer of heavy data analytics in global sports. They treat football like a computer science problem—optimization, pattern recognition, and continuous adaptation under pressure.
+                            </p>
                         </div>
+                    </details>
 
-                        <div class="manifest-list">
-                            <details class="manifest-item">
-                                <summary class="item-title">
-                                    <span>Football</span>
-                                    <span class="summary-arrow">▶</span>
-                                </summary>
-                                <div class="dropdown-content">
-                                    <p class="item-desc">I'm a football fan, or as some would say "soccer". I support Liverpool F.C. and watch their games in the context of tactical structure, analytics, and identity. The sport feels like a study in systems, decision-making, and collective tempo.</p>
-                                    <p class="item-desc">Under Fenway Sports Group, Liverpool famously became the pioneer of heavy data analytics in global sports. They treat football like a computer science problem—optimization, pattern recognition, and continuous adaptation under pressure.</p>
-                                </div>
-                            </details>
-
-                            <details class="manifest-item">
-                                <summary class="item-title">
-                                    <span>Programming</span>
-                                    <span class="summary-arrow">▶</span>
-                                </summary>
-                                <div class="dropdown-content">
-                                    <p class="item-desc">It’s probably obvious by now, but I love tinkering with technology and building new things from scratch. Honestly, the main reason I built this entire website was to turn my thoughts, interests, and side projects into a more deliberate digital home.</p>
-                                    <p class="item-desc">I’m planning to dive deeper into lower-level mechanics and data scripting next, expanding my toolkit into languages like C++, Python, and more advanced JavaScript patterns. I like the way software lets me turn abstract ideas into concrete systems.</p>
-                                </div>
-                            </details>
-
-                            <details class="manifest-item">
-                                <summary class="item-title">
-                                    <span>Journaling</span>
-                                    <span class="summary-arrow">▶</span>
-                                </summary>
-                                <div class="dropdown-content">
-                                    <p class="item-desc">I started journaling a few months ago, and honestly, it’s been incredibly refreshing to get my thoughts out of my head and onto a piece of paper. Whenever I have an idea, an emotion, or a weird feeling I don’t want to ignore, writing it down helps me make sense of it.</p>
-                                    <p class="item-desc">The habits of journaling and tracking my days became so engrained in my routine that I decided to take it to the next level: I created an entire program for it. I wanted a system that let me reflect consistently without friction, and it’s become one of the most useful tools in my life.</p>
-                                </div>
-                            </details>
-
-                            <details class="manifest-item">
-                                <summary class="item-title">
-                                    <span>Reading</span>
-                                    <span class="summary-arrow">▶</span>
-                                </summary>
-                                <div class="dropdown-content">
-                                    <p class="item-desc">I wouldn’t call this my biggest interest by any means, but I do like reading from time to time—whether it’s a regular book or the Bible. Honestly, it’s a great way to slow down and engage with ideas beyond the noise of the internet.</p>
-                                    <p class="item-desc">Whether I'm looking at a modern novel or diving into the historical texts and moral lessons of scripture, I like seeing how centuries-old writings can still teach us something about human nature, discipline, and purpose.</p>
-                                </div>
-                            </details>
+                    <details class="dropdown-container">
+                        <summary class="dropdown-trigger">
+                            <span class="arrow">▶</span>Programming
+                        </summary>
+                        <div class="dropdown-content">
+                            <p class="p1">
+                                It’s probably obvious by now, but I love tinkering with technology and building new things from scratch. Honestly, the main reason I built this entire website was to turn my thoughts, interests, and side projects into a more deliberate digital home.
+                            </p>
+                            <p class="p1">
+                                I’m planning to dive deeper into lower-level mechanics and data scripting next, expanding my toolkit into languages like C++, Python, and more advanced JavaScript patterns. I like the way software lets me turn abstract ideas into concrete systems.
+                            </p>
                         </div>
-                    </section>
+                    </details>
+
+                    <details class="dropdown-container">
+                        <summary class="dropdown-trigger">
+                            <span class="arrow">▶</span>Journaling
+                        </summary>
+                        <div class="dropdown-content">
+                            <p class="p1">
+                                I started journaling a few months ago, and honestly, it’s been incredibly refreshing to get my thoughts out of my head and onto a piece of paper. Whenever I have an idea, an emotion, or a weird feeling I don’t want to ignore, writing it down helps me make sense of it.
+                            </p>
+                            <p class="p1">
+                                The habits of journaling and tracking my days became so engrained in my routine that I decided to take it to the next level: I created an entire program for it. I wanted a system that let me reflect consistently without friction, and it’s become one of the most useful tools in my life.
+                            </p>
+                        </div>
+                    </details>
+
+                    <details class="dropdown-container">
+                        <summary class="dropdown-trigger">
+                            <span class="arrow">▶</span>Reading
+                        </summary>
+                        <div class="dropdown-content">
+                            <p class="p1">
+                                I wouldn’t call this my biggest interest by any means, but I do like reading from time to time—whether it’s a regular book or the Bible. Honestly, it’s a great way to slow down and engage with ideas beyond the noise of the internet.
+                            </p>
+                            <p class="p1">
+                                Whether I'm looking at a modern novel or diving into the historical texts and moral lessons of scripture, I like seeing how centuries-old writings can still teach us something about human nature, discipline, and purpose.
+                            </p>
+                        </div>
+                    </details>
                 </main>
             </div>
         </div>
