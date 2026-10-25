@@ -6,7 +6,6 @@
         <meta name="color-scheme" content="dark light">
         <title>Essays | David Busha</title>
         <meta name="description" content="The official website of David Busha">
-        <meta property="og:title" content="David Busha">
         <link rel="icon" type="image/png" href="david's-coffee-favico.png">
 
         <style type="text/css">
@@ -20,7 +19,6 @@
                 --link-hover: #e0e0e0;
                 --border: rgba(255, 255, 255, 0.08);
                 --item-border: rgba(255, 255, 255, 0.03);
-                --accent: #e0e0e0;
             }
 
             @media (prefers-color-scheme: light) {
@@ -34,7 +32,6 @@
                     --link-hover: rgb(18, 18, 18);
                     --border: rgba(0, 0, 0, 0.08);
                     --item-border: rgba(0, 0, 0, 0.05);
-                    --accent: rgb(24, 24, 24);
                 }
             }
 
@@ -104,34 +101,90 @@
                 color: var(--link-hover);
             }
 
-            .profile-header-img {
-                width: 70px;
-                height: 70px;
-                object-fit: cover;
-                display: block;
-                margin-bottom: 40px;
-                filter: grayscale(20%);
-            }
-
-            .content-section {
+            .section-container {
                 display: flex;
                 flex-direction: column;
-                gap: 28px;
                 width: 100%;
                 margin-bottom: 80px;
             }
 
-            .p1 {
-                font-size: 14px;
-                line-height: 1.8;
-                font-weight: normal;
+            .section-header-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 12px;
+                margin-bottom: 10px;
+            }
+
+            h2 {
+                color: var(--text-strong);
+                font-size: 18px;
+                font-weight: 600;
+                text-transform: lowercase;
+            }
+
+            .subtitle-note {
+                font-size: 12px;
+                color: var(--text-muted);
+            }
+
+            .manifest-list {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .manifest-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 24px;
+                padding: 20px 0;
+                border-bottom: 1px solid var(--item-border);
+            }
+
+            .item-meta {
+                font-size: 12px;
+                color: var(--text-muted-strong);
+                min-width: 120px;
+                padding-top: 3px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .item-main {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .item-title {
+                color: var(--text-strong);
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1.5;
+                cursor: pointer;
+                transition: color 0.15s ease;
+            }
+
+            .item-title:hover {
+                color: var(--link-hover);
+            }
+
+            .item-desc {
+                font-size: 13px;
+                line-height: 1.7;
                 color: var(--text);
             }
 
             .accent-link {
-                color: var(--text-strong);
-                border-bottom: 1px dashed var(--link);
+                color: var(--link);
+                font-size: 12px;
+                width: fit-content;
+                border-bottom: 1px dashed rgb(80, 100, 100);
                 transition: color 0.15s ease, border-color 0.15s ease;
+                margin-top: 4px;
             }
 
             .accent-link:hover {
@@ -139,38 +192,12 @@
                 border-bottom-color: var(--link-hover);
             }
 
-            .section-label {
-                font-size: 13px;
-                color: var(--text-strong);
-                font-weight: 600;
-                margin-top: 20px;
-                margin-bottom: 4px;
-            }
-
-            .appearances-list {
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-                margin-top: 10px;
-                list-style: none;
-            }
-
-            .appearance-item {
-                font-size: 14px;
-                line-height: 1.6;
-            }
-
-            .item-tag {
-                color: var(--text-muted);
-                margin-right: 8px;
-            }
-
             footer {
                 margin-top: auto;
                 padding-top: 60px;
                 padding-bottom: 60px;
                 width: 100%;
-                border-top: 1px solid var(--border);
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -205,26 +232,42 @@
                 body {
                     padding: 0 24px;
                 }
+
                 .main-wrapper {
                     padding-top: 40px;
                 }
+
                 .navdiv {
                     flex-direction: column;
                     align-items: flex-start;
                     gap: 24px;
                 }
+
                 .navbar {
                     margin-bottom: 80px;
                 }
+
                 .navbar ul {
                     width: 100%;
                     justify-content: space-between;
                     gap: 8px;
                 }
+
                 .navbar li a {
                     font-size: 10px;
                     letter-spacing: 1px;
                 }
+
+                .manifest-item {
+                    flex-direction: column;
+                    gap: 8px;
+                    padding: 16px 0;
+                }
+
+                .item-meta {
+                    min-width: unset;
+                }
+
                 footer {
                     flex-direction: column;
                     gap: 16px;
@@ -233,7 +276,6 @@
             }
         </style>
     </head>
-
     <body>
         <div class="main-wrapper">
             <nav class="navbar">
@@ -250,25 +292,23 @@
             </nav>
 
             <div class="page-wrapper">
-                <main class="content-section">
-                    <p class="p1">
-                        I like writing because it forces me to make sense of the ideas I keep circling back to. This is a place for my blogs, thoughts, and essays on the things I find interesting.
-                    </p>
+                <section class="section-container">
+                    <div class="section-header-row">
+                        <h2>essays & thoughts</h2>
+                        <span class="subtitle-note">notes in progress</span>
+                    </div>
 
-                    <p class="p1">
-                        I don't have essays yet, but there are many to come. Right now, this page is a quiet placeholder for future notes, reflections, and longer-form thinking on systems, learning, work, and the world.
-                    </p>
-
-                    <div class="section-label">What I plan to write about</div>
-
-                    <p class="p1">
-                        The topics are likely to include the systems I build around learning and execution, the ideas I am exploring in research and technology, and the broader questions I keep returning to about attention, ambition, and meaningful work.
-                    </p>
-
-                    <p class="p1">
-                        If you are curious, check back soon. I expect this section to grow into a collection of thoughtful notes and longer pieces as the ideas mature.
-                    </p>
-                </main>
+                    <div class="manifest-list">
+                        <div class="manifest-item">
+                            <div class="item-meta">[ what i want to write about ]</div>
+                            <div class="item-main">
+                                <p class="item-desc">
+                                    I want to write about the ideas I keep circling back to: how people build better systems for learning and work, how attention and digital environments shape behavior, and how ambitious people can think more clearly in a noisy world. I am interested in essays that connect productivity, technology, research, and the pursuit of a thoughtful life. I have no essays yet, but there are many to come.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </body>
