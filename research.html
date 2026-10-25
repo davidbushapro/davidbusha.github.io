@@ -129,103 +129,78 @@
                 color: var(--text-muted);
             }
 
-            .manifest-list {
-                display: flex;
-                flex-direction: column;
+            details {
                 width: 100%;
+                border: 1px solid var(--border);
+                background: rgba(255, 255, 255, 0.01);
+                margin: 18px 0 0 0;
+                overflow: hidden;
             }
 
-            .manifest-item {
+            .dropdown-summary {
+                list-style: none;
                 display: flex;
-                align-items: flex-start;
-                gap: 24px;
-                padding: 20px 0;
-                border-bottom: 1px solid var(--item-border);
-            }
-
-            .item-meta {
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                cursor: pointer;
+                padding: 16px 18px;
+                color: var(--text-strong);
                 font-size: 12px;
-                color: var(--text-muted-strong);
-                min-width: 90px;
-                padding-top: 3px;
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
+                user-select: none;
             }
 
-            .item-main {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
+            .dropdown-summary::-webkit-details-marker {
+                display: none;
             }
 
-            .item-title {
-                color: var(--text-strong);
-                font-size: 16px;
-                font-weight: 600;
-                line-height: 1.5;
-                cursor: pointer;
-                transition: color 0.15s ease;
+            .dropdown-summary::after {
+                content: '▾';
+                font-size: 12px;
+                color: var(--text-muted);
+                transition: transform 0.2s ease;
             }
 
-            .item-title:hover {
-                color: var(--link-hover);
+            details[open] > .dropdown-summary::after {
+                transform: rotate(180deg);
             }
 
-            .item-desc {
+            .dropdown-content {
+                padding: 0 18px 18px 18px;
+            }
+
+            .dropdown-content p {
                 font-size: 13px;
-                line-height: 1.7;
+                line-height: 1.8;
                 color: var(--text);
             }
 
-            .accent-link {
-                color: var(--link);
-                font-size: 12px;
-                width: fit-content;
-                border-bottom: 1px dashed rgb(80, 100, 100);
-                transition: color 0.15s ease, border-color 0.15s ease;
-                margin-top: 4px;
-            }
-
-            .accent-link:hover {
-                color: var(--link-hover);
-                border-bottom-color: var(--link-hover);
-            }
-
-            footer {
-                margin-top: auto;
-                padding-top: 60px;
-                padding-bottom: 60px;
-                width: 100%;
-                border-top: 1px solid rgba(255, 255, 255, 0.05);
+            .status-block {
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .footer-link {
-                color: var(--text-muted);
-                font-size: 12px;
-                transition: color 0.2s;
-            }
-
-            .footer-link:hover {
-                color: var(--link-hover);
-            }
-
-            .copyright-text {
-                color: rgb(70, 70, 70);
-                font-size: 11px;
-            }
-
-            @keyframes pageFadeUp {
-                from { opacity: 0; transform: translateY(8px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            .page-wrapper {
+                align-items: flex-start;
+                gap: 18px;
                 width: 100%;
-                animation: pageFadeUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+                margin-top: 20px;
+                padding-top: 12px;
+                border-top: 1px solid var(--border);
+            }
+
+            .status-label {
+                font-size: 12px;
+                color: var(--text-strong);
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                min-width: 72px;
+                padding-top: 2px;
+            }
+
+            .status-copy {
+                flex: 1;
+                font-size: 13px;
+                line-height: 1.8;
+                color: var(--text);
             }
 
             @media (max-width: 600px) {
@@ -258,20 +233,9 @@
                     letter-spacing: 1px;
                 }
 
-                .manifest-item {
+                .status-block {
                     flex-direction: column;
                     gap: 8px;
-                    padding: 16px 0;
-                }
-
-                .item-meta {
-                    min-width: unset;
-                }
-
-                footer {
-                    flex-direction: column;
-                    gap: 16px;
-                    align-items: flex-start;
                 }
             }
         </style>
@@ -285,6 +249,7 @@
                         <li><a href="/">home</a></li>
                         <li><a href="/pursuits">pursuits</a></li>
                         <li><a href="/systems">systems</a></li>
+                        <li><a href="/essays">essays</a></li>
                         <li><a href="/research" class="active">research</a></li>
                     </ul>
                 </div>
@@ -297,21 +262,19 @@
                         <span class="subtitle-note">independent inquiries (in progress)</span>
                     </div>
 
-                    <div class="manifest-list">
-                        <div class="manifest-item">
-                            <div class="item-meta">[ 2026 / draft ]</div>
-                            <div class="item-main">
-                                <h3 class="item-title">Deep Learning for Ethiopic-Script Recognition: A CNR with Emphasis on Historical Ge&apos;ez OCR</h3>
-                                <p class="item-desc">A critical review of deep learning approaches to Ethiopic-script recognition, examining existing methods, evaluation challenges, and opportunities <a class="accent-link" href="#">read manuscript link</a></p>
-                            </div>
+                    <details>
+                        <summary class="dropdown-summary">[ what i want to write about ]</summary>
+                        <div class="dropdown-content">
+                            <p>
+                                I want to write about the ideas I keep circling back to: how people build better systems for learning and work, how attention and digital environments shape behavior, and how ambitious people can think more clearly in a noisy world. I am interested in essays that connect productivity, technology, research, and the pursuit of a thoughtful life. I have no essays yet, but there are many to come.
+                            </p>
                         </div>
+                    </details>
 
-                        <div class="manifest-item">
-                            <div class="item-meta">[ 2026 / draft ]</div>
-                            <div class="item-main">
-                                <h3 class="item-title">Cognitive Optimization: Structural Architecture of Focused Digital Ecosystems</h3>
-                                <p class="item-desc">Investigating behavioral constraints and data-reduction interfaces to document how minimalist software environments impact information filtering me <a class="accent-link" href="#">read repository data</a></p>
-                            </div>
+                    <div class="status-block">
+                        <div class="status-label">[ status ]</div>
+                        <div class="status-copy">
+                            This section is intentionally quiet for now. It is a place for future writing to gather: reflections on attention, systems, and intellectual life as they develop over time.
                         </div>
                     </div>
                 </section>
