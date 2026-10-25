@@ -198,7 +198,7 @@
                 }
             }
 
-            .dropdown-container {
+            details {
                 width: 100%;
                 border: 1px solid var(--border);
                 background: rgba(255, 255, 255, 0.01);
@@ -206,11 +206,7 @@
                 overflow: hidden;
             }
 
-            .dropdown-container summary::-webkit-details-marker {
-                display: none;
-            }
-
-            .dropdown-container summary {
+            .dropdown-summary {
                 list-style: none;
                 display: flex;
                 align-items: center;
@@ -219,20 +215,24 @@
                 cursor: pointer;
                 padding: 16px 18px;
                 color: var(--text-strong);
-                font-size: 14px;
-                line-height: 1.5;
-                letter-spacing: 0.2px;
+                font-size: 11px;
+                text-transform: none;
+                letter-spacing: 0.5px;
                 user-select: none;
             }
 
-            .dropdown-container summary::after {
+            .dropdown-summary::-webkit-details-marker {
+                display: none;
+            }
+
+            .dropdown-summary::after {
                 content: '▾';
-                font-size: 12px;
+                font-size: 11px;
                 color: var(--text-muted);
                 transition: transform 0.2s ease;
             }
 
-            .dropdown-container[open] > summary::after {
+            details[open] > .dropdown-summary::after {
                 transform: rotate(180deg);
             }
 
@@ -272,8 +272,8 @@
                         To me, these worlds aren't isolated. The pattern recognition and tactical strategy I see when analyzing a football play, the deep focus I get from a tough book, and the creative problem-solving in software all flow into the same system of thought.
                     </p>
 
-                    <details class="dropdown-container">
-                        <summary>Football</summary>
+                    <details>
+                        <summary class="dropdown-summary">Football</summary>
                         <div class="dropdown-content">
                             <p class="p1">
                                 I'm a football fan, or as some would say "soccer". I support Liverpool F.C. and watch their games in the context of tactical structure, analytics, and identity. The game is a fascinating mix of creativity, discipline, and decision-making under pressure.
@@ -284,8 +284,8 @@
                         </div>
                     </details>
 
-                    <details class="dropdown-container">
-                        <summary>Programming</summary>
+                    <details>
+                        <summary class="dropdown-summary">Programming</summary>
                         <div class="dropdown-content">
                             <p class="p1">
                                 It’s probably obvious by now, but I love tinkering with technology and building new things from scratch. Honestly, the main reason I built this entire website was just to put my ideas in one place and keep learning through practical design.
@@ -296,8 +296,8 @@
                         </div>
                     </details>
 
-                    <details class="dropdown-container">
-                        <summary>Journaling</summary>
+                    <details>
+                        <summary class="dropdown-summary">Journaling</summary>
                         <div class="dropdown-content">
                             <p class="p1">
                                 I started journaling a few months ago, and honestly, it’s been incredibly refreshing to get my thoughts out of my head and onto a piece of paper. Whenever I have a lot on my mind, writing helps me process it in a calmer, more structured way.
@@ -308,8 +308,8 @@
                         </div>
                     </details>
 
-                    <details class="dropdown-container">
-                        <summary>Reading</summary>
+                    <details>
+                        <summary class="dropdown-summary">Reading</summary>
                         <div class="dropdown-content">
                             <p class="p1">
                                 I wouldn’t call this my biggest interest by any means, but I do like reading from time to time—whether it’s a regular book or the Bible. Honestly, it’s a good way to slow down and reflect on ideas outside my everyday routine.
