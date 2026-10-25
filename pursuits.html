@@ -136,32 +136,6 @@
                 border-bottom-color: var(--link-hover);
             }
 
-            .section-label {
-                font-size: 13px;
-                color: var(--text-strong);
-                font-weight: 600;
-                margin-top: 20px;
-                margin-bottom: 4px;
-            }
-
-            .appearances-list {
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-                margin-top: 10px;
-                list-style: none;
-            }
-
-            .appearance-item {
-                font-size: 14px;
-                line-height: 1.6;
-            }
-
-            .item-tag {
-                color: var(--text-muted);
-                margin-right: 8px;
-            }
-
             footer {
                 margin-top: auto;
                 padding-top: 60px;
@@ -222,28 +196,14 @@
                     font-size: 10px;
                     letter-spacing: 1px;
                 }
-                .manifest-item {
-                    flex-direction: column;
-                    gap: 8px;
-                    padding: 16px 0;
-                }
-
-                .item-meta {
-                    min-width: unset;
-                }
-                footer {
-                    flex-direction: column;
-                    gap: 16px;
-                    align-items: flex-start;
-                }
             }
 
             .dropdown-container {
                 width: 100%;
-                border: 1px solid rgba(255, 255, 255, 0.2);
+                border: 1px solid var(--border);
                 background: rgba(255, 255, 255, 0.01);
+                margin: 18px 0 0 0;
                 overflow: hidden;
-                margin: 0;
             }
 
             .dropdown-container summary::-webkit-details-marker {
@@ -257,35 +217,33 @@
                 justify-content: space-between;
                 width: 100%;
                 cursor: pointer;
-                padding: 24px 20px;
+                padding: 16px 18px;
                 color: var(--text-strong);
-                font-size: 19px;
-                line-height: 1.3;
-                font-weight: 400;
-                letter-spacing: 0.01em;
+                font-size: 14px;
+                line-height: 1.5;
+                letter-spacing: 0.2px;
                 user-select: none;
             }
 
-            .dropdown-container summary .arrow {
-                font-size: 14px;
-                color: var(--dropdown-arrow);
+            .dropdown-container summary::after {
+                content: '▾';
+                font-size: 12px;
+                color: var(--text-muted);
                 transition: transform 0.2s ease;
-                display: inline-block;
-                margin-left: 14px;
-                transform: none;
             }
 
-            .dropdown-container[open] summary .arrow {
+            .dropdown-container[open] > summary::after {
                 transform: rotate(180deg);
-                color: var(--text-strong);
             }
 
             .dropdown-content {
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-                padding: 0 20px 20px;
-                border-top: 1px solid var(--border);
+                padding: 0 18px 18px 18px;
+            }
+
+            .dropdown-content p {
+                font-size: 12px;
+                line-height: 1.8;
+                color: var(--text);
             }
         </style>
     </head>
@@ -315,10 +273,7 @@
                     </p>
 
                     <details class="dropdown-container">
-                        <summary class="dropdown-trigger">
-                            <span>Football</span>
-                            <span class="arrow">▾</span>
-                        </summary>
+                        <summary>Football</summary>
                         <div class="dropdown-content">
                             <p class="p1">
                                 I'm a football fan, or as some would say "soccer". I support Liverpool F.C. and watch their games in the context of tactical structure, analytics, and identity. The game is a fascinating mix of creativity, discipline, and decision-making under pressure.
@@ -330,10 +285,7 @@
                     </details>
 
                     <details class="dropdown-container">
-                        <summary class="dropdown-trigger">
-                            <span>Programming</span>
-                            <span class="arrow">▾</span>
-                        </summary>
+                        <summary>Programming</summary>
                         <div class="dropdown-content">
                             <p class="p1">
                                 It’s probably obvious by now, but I love tinkering with technology and building new things from scratch. Honestly, the main reason I built this entire website was just to put my ideas in one place and keep learning through practical design.
@@ -345,10 +297,7 @@
                     </details>
 
                     <details class="dropdown-container">
-                        <summary class="dropdown-trigger">
-                            <span>Journaling</span>
-                            <span class="arrow">▾</span>
-                        </summary>
+                        <summary>Journaling</summary>
                         <div class="dropdown-content">
                             <p class="p1">
                                 I started journaling a few months ago, and honestly, it’s been incredibly refreshing to get my thoughts out of my head and onto a piece of paper. Whenever I have a lot on my mind, writing helps me process it in a calmer, more structured way.
@@ -360,10 +309,7 @@
                     </details>
 
                     <details class="dropdown-container">
-                        <summary class="dropdown-trigger">
-                            <span>Reading</span>
-                            <span class="arrow">▾</span>
-                        </summary>
+                        <summary>Reading</summary>
                         <div class="dropdown-content">
                             <p class="p1">
                                 I wouldn’t call this my biggest interest by any means, but I do like reading from time to time—whether it’s a regular book or the Bible. Honestly, it’s a good way to slow down and reflect on ideas outside my everyday routine.
