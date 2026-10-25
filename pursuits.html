@@ -101,6 +101,15 @@
                 color: var(--link-hover);
             }
 
+            .profile-header-img {
+                width: 70px;
+                height: 70px;
+                object-fit: cover;
+                display: block;
+                margin-bottom: 40px;
+                filter: grayscale(20%);
+            }
+
             .content-section {
                 display: flex;
                 flex-direction: column;
@@ -116,58 +125,41 @@
                 color: var(--text);
             }
 
-            .dropdown-container {
-                border: 1px solid var(--border);
-                border-radius: 8px;
-                background: rgba(255, 255, 255, 0.01);
-                overflow: hidden;
-            }
-
-            .dropdown-container summary::-webkit-details-marker {
-                display: none;
-            }
-
-            .dropdown-container summary {
-                list-style: none;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                padding: 18px 18px;
+            .accent-link {
                 color: var(--text-strong);
-                font-size: 14px;
-                font-weight: 600;
-                user-select: none;
-                transition: color 0.2s ease;
+                border-bottom: 1px dashed var(--link);
+                transition: color 0.15s ease, border-color 0.15s ease;
             }
 
-            .dropdown-container summary:hover {
+            .accent-link:hover {
                 color: var(--link-hover);
+                border-bottom-color: var(--link-hover);
             }
 
-            .arrow {
-                font-size: 10px;
-                color: var(--dropdown-arrow);
-                transition: transform 0.2s ease;
-                display: inline-block;
-                transform: rotate(0deg);
-            }
-
-            .dropdown-container[open] .arrow {
-                transform: rotate(90deg);
+            .section-label {
+                font-size: 13px;
                 color: var(--text-strong);
+                font-weight: 600;
+                margin-top: 20px;
+                margin-bottom: 4px;
             }
 
-            .dropdown-content {
+            .appearances-list {
                 display: flex;
                 flex-direction: column;
-                gap: 18px;
-                padding: 0 18px 20px;
+                gap: 16px;
+                margin-top: 10px;
+                list-style: none;
             }
 
-            .dropdown-content .p1 {
-                font-size: 13px;
-                line-height: 1.8;
+            .appearance-item {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .item-tag {
+                color: var(--text-muted);
+                margin-right: 8px;
             }
 
             footer {
@@ -230,11 +222,59 @@
                     font-size: 10px;
                     letter-spacing: 1px;
                 }
+                .manifest-item {
+                    flex-direction: column;
+                    gap: 8px;
+                    padding: 16px 0;
+                }
+
+                .item-meta {
+                    min-width: unset;
+                }
                 footer {
                     flex-direction: column;
                     gap: 16px;
                     align-items: flex-start;
                 }
+            }
+
+            .dropdown-container summary::-webkit-details-marker {
+                display: none;
+            }
+            .dropdown-container summary {
+                list-style: none;
+            }
+
+            .dropdown-trigger {
+                font-size: 14px;
+                color: var(--text-strong);
+                font-weight: 600;
+                margin-top: 35px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                user-select: none;
+            }
+
+            .arrow {
+                font-size: 10px;
+                color: var(--dropdown-arrow);
+                transition: transform 0.2s ease;
+                display: inline-block;
+            }
+
+            .dropdown-container[open] .arrow {
+                transform: rotate(90deg);
+                color: var(--text-strong);
+            }
+
+            .dropdown-content {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                margin-top: 15px;
+                padding-left: 20px;
             }
         </style>
     </head>
@@ -256,11 +296,11 @@
             <div class="page-wrapper">
                 <main class="content-section">
                     <p class="p1">
-                        I think of my favorite pursuits not as separate hobbies, but as different ways to challenge my mind and stay grounded. Although my main focuses are software engineering, neuroscience, and entrepreneurship, I still invest time and energy into other areas that sharpen me in different ways.
+                        I think of my favorite pursuits not as separate hobbies, but as different ways to challenge my mind and stay grounded. Although my main focuses are software engineering, NLP, and the humanities, my personal interests are much broader than that.
                     </p>
 
                     <p class="p1">
-                        To me, these worlds aren't isolated. The pattern recognition and tactical strategy I see when analyzing a football play, the deep focus I get from a tough book, and the creative problem solving I engage in with software all connect under the same mindset: learning how systems work and how to improve them.
+                        To me, these worlds aren't isolated. The pattern recognition and tactical strategy I see when analyzing a football play, the deep focus I get from a tough book, and the creative problem-solving in software all flow into the same system of thought.
                     </p>
 
                     <details class="dropdown-container">
@@ -269,10 +309,10 @@
                         </summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                I'm a football fan, or as some would say "soccer". I support Liverpool F.C. and watch their games in the context of tactical structure, analytics, and identity. The sport feels like a study in composition, teamwork, and team-level strategy.
+                                I'm a football fan, or as some would say "soccer". I support Liverpool F.C. and watch their games in the context of tactical structure, analytics, and identity. The game is a fascinating mix of creativity, discipline, and decision-making under pressure.
                             </p>
                             <p class="p1">
-                                Under Fenway Sports Group, Liverpool famously became the pioneer of heavy data analytics in global sports. They treat football like a computer science problem—optimization, pattern recognition, and continuous adaptation under pressure.
+                                Under Fenway Sports Group, Liverpool famously became the pioneer of heavy data analytics in global sports. They treat football like a computer science problem—optimizing movement, patterns, and decision quality through measured structure.
                             </p>
                         </div>
                     </details>
@@ -283,10 +323,10 @@
                         </summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                It’s probably obvious by now, but I love tinkering with technology and building new things from scratch. Honestly, the main reason I built this entire website was to turn my thoughts, interests, and side projects into a more deliberate digital home.
+                                It’s probably obvious by now, but I love tinkering with technology and building new things from scratch. Honestly, the main reason I built this entire website was just to put my ideas in one place and keep learning through practical design.
                             </p>
                             <p class="p1">
-                                I’m planning to dive deeper into lower-level mechanics and data scripting next, expanding my toolkit into languages like C++, Python, and more advanced JavaScript patterns. I like the way software lets me turn abstract ideas into concrete systems.
+                                I’m planning to dive deeper into lower-level mechanics and data scripting next, expanding my toolkit into languages like C++, Python, and more advanced JavaScript to build more robust systems and workflows.
                             </p>
                         </div>
                     </details>
@@ -297,10 +337,10 @@
                         </summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                I started journaling a few months ago, and honestly, it’s been incredibly refreshing to get my thoughts out of my head and onto a piece of paper. Whenever I have an idea, an emotion, or a weird feeling I don’t want to ignore, writing it down helps me make sense of it.
+                                I started journaling a few months ago, and honestly, it’s been incredibly refreshing to get my thoughts out of my head and onto a piece of paper. Whenever I have a lot on my mind, writing helps me process it in a calmer, more structured way.
                             </p>
                             <p class="p1">
-                                The habits of journaling and tracking my days became so engrained in my routine that I decided to take it to the next level: I created an entire program for it. I wanted a system that let me reflect consistently without friction, and it’s become one of the most useful tools in my life.
+                                The habits of journaling and tracking my days became so engrained in my routine that I decided to take it to the next level: I created an entire program for it. <b>Inkwell</b> is an esoteric scripting language built purely for tracking thoughts, routines, and progress. Download it for <a class="accent-link" href="https://github.com/davidbushapro/Inkwell/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">Mac or Windows</a> and give it a try!
                             </p>
                         </div>
                     </details>
@@ -311,10 +351,10 @@
                         </summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                I wouldn’t call this my biggest interest by any means, but I do like reading from time to time—whether it’s a regular book or the Bible. Honestly, it’s a great way to slow down and engage with ideas beyond the noise of the internet.
+                                I wouldn’t call this my biggest interest by any means, but I do like reading from time to time—whether it’s a regular book or the Bible. Honestly, it’s a good way to slow down and reflect on ideas outside my everyday routine.
                             </p>
                             <p class="p1">
-                                Whether I'm looking at a modern novel or diving into the historical texts and moral lessons of scripture, I like seeing how centuries-old writings can still teach us something about human nature, discipline, and purpose.
+                                Whether I'm looking at a modern novel or diving into the historical texts and moral lessons of scripture, I like seeing how centuries-old writings can still teach relevant truths about human nature, purpose, and the patterns we repeat over time.
                             </p>
                         </div>
                     </details>
