@@ -146,7 +146,7 @@
                 cursor: pointer;
                 padding: 16px 18px;
                 color: var(--text-strong);
-                font-size: 12px;
+                font-size: 11px;
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
                 user-select: none;
@@ -158,7 +158,7 @@
 
             .dropdown-summary::after {
                 content: '▾';
-                font-size: 12px;
+                font-size: 11px;
                 color: var(--text-muted);
                 transition: transform 0.2s ease;
             }
@@ -172,7 +172,7 @@
             }
 
             .dropdown-content p {
-                font-size: 13px;
+                font-size: 12px;
                 line-height: 1.8;
                 color: var(--text);
             }
@@ -188,7 +188,7 @@
             }
 
             .status-label {
-                font-size: 12px;
+                font-size: 11px;
                 color: var(--text-strong);
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
@@ -198,13 +198,19 @@
 
             .status-copy {
                 flex: 1;
-                font-size: 13px;
+                font-size: 12px;
                 line-height: 1.8;
                 color: var(--text);
             }
-             @keyframes pageFadeUp {
+
+            @keyframes pageFadeUp {
                 from { opacity: 0; transform: translateY(8px); }
                 to { opacity: 1; transform: translateY(0); }
+            }
+
+            .page-wrapper {
+                width: 100%;
+                animation: pageFadeUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
             }
 
             @media (max-width: 600px) {
@@ -270,13 +276,13 @@
                         <summary class="dropdown-summary">Deep Learning for Ethiopic-Script Recognition: A CNR with Emphasis on Historical Ge'ez OCR</summary>
                         <div class="dropdown-content">
                             <p>
-                                A critical review of deep learning approaches to Ethiopic-script recognition, examining existing methods, evaluation challenges, and opportunities for improving OCR of historical Ge'ez manuscripts.
+                                A critical review of deep learning approaches to Ethiopic-script recognition, examining existing methods, evaluation challenges, and opportunities for improving OCR performance across historical and contemporary text.
                             </p>
                         </div>
                     </details>
 
                     <div class="status-block">
-                        <div class="status-label">[ DRAFT ]</div>
+                        <div class="status-label">[ draft ]</div>
                         <div class="status-copy">
                             This paper is still under development.
                         </div>
