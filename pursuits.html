@@ -238,23 +238,39 @@
                 }
             }
 
+            .dropdown-container {
+                width: 100%;
+                border: 1px solid var(--border);
+                background: rgba(255, 255, 255, 0.01);
+                overflow: hidden;
+            }
+
             .dropdown-container summary::-webkit-details-marker {
                 display: none;
             }
+
             .dropdown-container summary {
                 list-style: none;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                padding: 16px 18px;
+                cursor: pointer;
+                user-select: none;
             }
 
             .dropdown-trigger {
-                font-size: 14px;
+                font-size: 11px;
                 color: var(--text-strong);
-                font-weight: 600;
-                margin-top: 35px;
-                cursor: pointer;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
                 display: flex;
                 align-items: center;
+                justify-content: space-between;
+                width: 100%;
                 gap: 10px;
-                user-select: none;
             }
 
             .arrow {
@@ -273,8 +289,8 @@
                 display: flex;
                 flex-direction: column;
                 gap: 24px;
-                margin-top: 15px;
-                padding-left: 20px;
+                padding: 0 18px 18px 18px;
+                border-top: 1px solid var(--border);
             }
         </style>
     </head>
@@ -296,11 +312,11 @@
             <div class="page-wrapper">
                 <main class="content-section">
                     <p class="p1">
-                        I think of my favorite pursuits not as separate hobbies, but as different ways to challenge my mind and stay grounded. Although my main focuses are software engineering, NLP, and the humanities, my personal interests are much broader than that.
+                        I think of my favorite pursuits not as separate hobbies, but as different ways to challenge my mind and stay grounded. Although my main focuses are software engineering, N[...]
                     </p>
 
                     <p class="p1">
-                        To me, these worlds aren't isolated. The pattern recognition and tactical strategy I see when analyzing a football play, the deep focus I get from a tough book, and the creative problem-solving in software all flow into the same system of thought.
+                        To me, these worlds aren't isolated. The pattern recognition and tactical strategy I see when analyzing a football play, the deep focus I get from a tough book, and the cr[...]
                     </p>
 
                     <details class="dropdown-container">
@@ -309,10 +325,10 @@
                         </summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                I'm a football fan, or as some would say "soccer". I support Liverpool F.C. and watch their games in the context of tactical structure, analytics, and identity. The game is a fascinating mix of creativity, discipline, and decision-making under pressure.
+                                I'm a football fan, or as some would say "soccer". I support Liverpool F.C. and watch their games in the context of tactical structure, analytics, and identity. Th[...]
                             </p>
                             <p class="p1">
-                                Under Fenway Sports Group, Liverpool famously became the pioneer of heavy data analytics in global sports. They treat football like a computer science problem—optimizing movement, patterns, and decision quality through measurement and structure.
+                                Under Fenway Sports Group, Liverpool famously became the pioneer of heavy data analytics in global sports. They treat football like a computer science problem—op[...]
                             </p>
                         </div>
                     </details>
@@ -323,10 +339,10 @@
                         </summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                It’s probably obvious by now, but I love tinkering with technology and building new things from scratch. Honestly, the main reason I built this entire website was just to put my ideas in one place and keep learning through practical design.
+                                It’s probably obvious by now, but I love tinkering with technology and building new things from scratch. Honestly, the main reason I built this entire website wa[...]
                             </p>
                             <p class="p1">
-                                I’m planning to dive deeper into lower-level mechanics and data scripting next, expanding my toolkit into languages like C++, Python, and more advanced JavaScript to build more robust systems and workflows.
+                                I’m planning to dive deeper into lower-level mechanics and data scripting next, expanding my toolkit into languages like C++, Python, and more advanced JavaScrip[...]
                             </p>
                         </div>
                     </details>
@@ -337,10 +353,10 @@
                         </summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                I started journaling a few months ago, and honestly, it’s been incredibly refreshing to get my thoughts out of my head and onto a piece of paper. Whenever I have a lot on my mind, writing helps me process it in a calmer, more structured way.
+                                I started journaling a few months ago, and honestly, it’s been incredibly refreshing to get my thoughts out of my head and onto a piece of paper. Whenever I have[...]
                             </p>
                             <p class="p1">
-                                The habits of journaling and tracking my days became so engrained in my routine that I decided to take it to the next level: I created an entire program for it. <b>Inkwell</b> is an esoteric scripting language built purely for tracking thoughts, routines, and progress. Download it for <a class="accent-link" href="https://github.com/davidbushapro/Inkwell/releases/tag/v.1.0.0" target="_blank" rel="noopener noreferrer">Mac or Windows </a> and give it a try!
+                                The habits of journaling and tracking my days became so engrained in my routine that I decided to take it to the next level: I created an entire program for it. <b[...]
                             </p>
                         </div>
                     </details>
@@ -351,10 +367,10 @@
                         </summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                I wouldn’t call this my biggest interest by any means, but I do like reading from time to time—whether it’s a regular book or the Bible. Honestly, it’s a good way to slow down and engage my mind in a different way than screens and constant notifications.
+                                I wouldn’t call this my biggest interest by any means, but I do like reading from time to time—whether it’s a regular book or the Bible. Honestly, it’s a g[...]
                             </p>
                             <p class="p1">
-                                Whether I'm looking at a modern novel or diving into the historical texts and moral lessons of scripture, I like seeing how centuries-old writings can still teach us about humanity, logic, discipline, and purpose.
+                                Whether I'm looking at a modern novel or diving into the historical texts and moral lessons of scripture, I like seeing how centuries-old writings can still teach [...]
                             </p>
                         </div>
                     </details>
