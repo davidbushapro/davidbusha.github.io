@@ -46,20 +46,17 @@
                 background-color: var(--bg);
                 font-family: 'SF Mono', Monaco, Consolas, 'Fira Code', monospace;
                 color: var(--text);
-                padding: 0 40px;
-                display: flex;
-                justify-content: center;
                 min-height: 100vh;
                 -webkit-font-smoothing: antialiased;
                 transition: background-color 0.25s ease, color 0.25s ease;
             }
 
             .main-wrapper {
-                width: 100%;
-                max-width: 680px;
+                width: min(100%, 680px);
+                margin: 0 auto;
                 display: flex;
                 flex-direction: column;
-                padding-top: 60px;
+                padding: 60px 40px 0;
             }
 
             .navbar {
@@ -173,11 +170,8 @@
             }
 
             @media (max-width: 600px) {
-                body {
-                    padding: 0 24px;
-                }
                 .main-wrapper {
-                    padding-top: 40px;
+                    padding: 40px 24px 0;
                 }
                 .navdiv {
                     flex-direction: column;
@@ -265,21 +259,21 @@
             <div class="page-wrapper">
                 <main class="content-section">
                     <p class="p1">
-                        I think of my favorite pursuits not as separate hobbies, but as different ways to challenge my mind and stay grounded. Although my main focuses are software engineering, NLP, economics and the humanities, my personal interests are much broader than that.
+                        I think of my favorite pursuits not as separate hobbies, but as different ways to challenge my mind and stay grounded. Although my main focuses are software engineering, neuroscience, and language, I keep a rotating set of activities that keep me curious, disciplined, and creative.
                     </p>
 
                     <p class="p1">
-                        To me, these worlds aren't isolated. The pattern recognition and tactical strategy I see when analyzing a football play, the deep focus I get from a tough book, and the creative problem-solving in software all flow into the same system of thought.
+                        To me, these worlds aren't isolated. The pattern recognition and tactical strategy I see when analyzing a football play, the deep focus I get from a tough book, and the creative problem-solving in design all feed into each other. They sharpen the way I think and the way I build.
                     </p>
 
                     <details>
                         <summary class="dropdown-summary">Football</summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                I'm a football fan, or as some would say "soccer". I support Liverpool F.C. and watch their games in the context of tactical structure, analytics, and identity. The game is a fascinating mix of creativity, discipline, and decision-making under pressure.
+                                I'm a football fan, or as some would say "soccer". I support Liverpool F.C. and watch their games in the context of tactical structure, analytics, and identity. The way they move the ball, press in phases, and create overloads is a constant study in intelligent systems.
                             </p>
                             <p class="p1">
-                                Under Fenway Sports Group, Liverpool famously became the pioneer of heavy data analytics in global sports. They treat football like a computer science problem—optimizing movement, patterns, and decision quality through measured structure.
+                                Under Fenway Sports Group, Liverpool famously became the pioneer of heavy data analytics in global sports. They treat football like a computer science problem—optimization, pattern recognition, and resource allocation at the highest level.
                             </p>
                         </div>
                     </details>
@@ -288,10 +282,10 @@
                         <summary class="dropdown-summary">Programming</summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                It’s probably obvious by now, but I love tinkering with technology and building new things from scratch. Honestly, the main reason I built this entire website was just to put my ideas in one place and keep learning through practical design.
+                                It’s probably obvious by now, but I love tinkering with technology and building new things from scratch. Honestly, the main reason I built this entire website was to have a space where I could experiment with ideas, tools, and creative systems without needing permission from anyone else.
                             </p>
                             <p class="p1">
-                                I’m planning to dive deeper into lower-level mechanics and data scripting next, expanding my toolkit into languages like C++, Python, and more advanced JavaScript to build more robust systems and workflows.
+                                I’m planning to dive deeper into lower-level mechanics and data scripting next, expanding my toolkit into languages like C++, Python, and more advanced JavaScript patterns.
                             </p>
                         </div>
                     </details>
@@ -299,10 +293,10 @@
                         <summary class="dropdown-summary">Graphic Design</summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                  I’ve been playing around with Photoshop since 2022, and it’s become one of my favorite creative outlets. Over the past few years, I’ve designed a bunch of custom video thumbnails, visual artworks, and various digital layouts completely from scratch.
+                                  I’ve been playing around with Photoshop since 2022, and it’s become one of my favorite creative outlets. Over the past few years, I’ve designed a bunch of logos, posters, and visual experiments for personal and academic projects.
                             </p>
                             <p class="p1">
-                                For me, graphic design is just another way of tinkering. It’s the exact same process as coding—you start with a blank screen, figure out how to arrange different elements, and build a clean visual system that actually looks good and makes sense.
+                                For me, graphic design is just another way of tinkering. It’s the exact same process as coding—you start with a blank screen, figure out how to arrange different elements, and keep iterating until the composition feels coherent.
                             </p>
                         </div>
                     </details>
@@ -311,22 +305,22 @@
                         <summary class="dropdown-summary">Journaling</summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                I started journaling a few months ago, and honestly, it’s been incredibly refreshing to get my thoughts out of my head and onto a piece of paper. Whenever I have a lot on my mind, writing helps me process it in a calmer, more structured way.
+                                I started journaling a few months ago, and honestly, it’s been incredibly refreshing to get my thoughts out of my head and onto a piece of paper. Whenever I have a sharp idea, an emotional question, or a difficult decision, I try to write it down and sit with it for a while.
                             </p>
                             <p class="p1">
-                                The habits of journaling and tracking my days became so engrained in my routine that I decided to take it to the next level: I created an entire program for it. <b>Inkwell</b> is an esoteric scripting language built purely for tracking thoughts, routines, and progress. Download it for <a class="accent-link" href="https://github.com/davidbushapro/Inkwell/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">Mac or Windows</a> and give it a try!
+                                The habits of journaling and tracking my days became so engrained in my routine that I decided to take it to the next level: I created an entire program for it. <b>I’ve been using it to log thoughts, habits, and daily reflections in a more structured way.</b>
                             </p>
                         </div>
                     </details>
-                    
+
                     <details>
                         <summary class="dropdown-summary">Reading</summary>
                         <div class="dropdown-content">
                             <p class="p1">
-                                I wouldn’t call this my biggest interest by any means, but I do like reading from time to time—whether it’s a regular book or the Bible. Honestly, it’s a good way to slow down and reflect on ideas outside my everyday routine.
+                                I wouldn’t call this my biggest interest by any means, but I do like reading from time to time—whether it’s a regular book or the Bible. Honestly, it’s a good reset from the constant flow of digital input.
                             </p>
                             <p class="p1">
-                                Whether I'm looking at a modern novel or diving into the historical texts and moral lessons of scripture, I like seeing how centuries-old writings can still teach relevant truths about human nature, purpose, and the patterns we repeat over time.
+                                Whether I'm looking at a modern novel or diving into the historical texts and moral lessons of scripture, I like seeing how centuries-old writings can still teach modern people how to think more clearly.
                             </p>
                         </div>
                     </details>
