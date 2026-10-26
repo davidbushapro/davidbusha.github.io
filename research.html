@@ -46,20 +46,17 @@
                 background-color: var(--bg);
                 font-family: 'SF Mono', Monaco, Consolas, 'Fira Code', monospace;
                 color: var(--text);
-                padding: 0 40px;
-                display: flex;
-                justify-content: center;
                 min-height: 100vh;
                 -webkit-font-smoothing: antialiased;
                 transition: background-color 0.25s ease, color 0.25s ease;
             }
 
             .main-wrapper {
-                width: 100%;
-                max-width: 680px;
+                width: min(100%, 680px);
+                margin: 0 auto;
                 display: flex;
                 flex-direction: column;
-                padding-top: 60px;
+                padding: 60px 40px 0;
             }
 
             .navbar {
@@ -214,12 +211,8 @@
             }
 
             @media (max-width: 600px) {
-                body {
-                    padding: 0 24px;
-                }
-
                 .main-wrapper {
-                    padding-top: 40px;
+                    padding: 40px 24px 0;
                 }
 
                 .navdiv {
@@ -276,7 +269,7 @@
                         <summary class="dropdown-summary">Deep Learning for Ethiopic-Script Recognition: A CNR with Emphasis on Historical Ge'ez OCR</summary>
                         <div class="dropdown-content">
                             <p>
-                                A critical review of deep learning approaches to Ethiopic-script recognition, examining existing methods, evaluation challenges, and opportunities for improving OCR performance across historical and contemporary text.
+                                A critical review of deep learning approaches to Ethiopic-script recognition, examining existing methods, evaluation challenges, and opportunities for improving OCR systems for historical Ge'ez text.
                             </p>
                         </div>
                     </details>
@@ -292,7 +285,7 @@
                         <summary class="dropdown-summary">Cognitive Optimization: Structural Architecture of Focused Digital Ecosystems</summary>
                         <div class="dropdown-content">
                             <p>
-                                Investigating behavioral constraints and data-reduction interfaces to document how minimalist software environments impact information filtering metrics in adolescents.
+                                Investigating behavioral constraints and data-reduction interfaces to document how minimalist software environments impact information filtering metrics in adolescent and young adult cognitive workflows.
                             </p>
                         </div>
                     </details>
@@ -308,8 +301,7 @@
                         <summary class="dropdown-summary">A Systematic Review of Cross-Lingual Machine Translation and Data Scarcity Bottlenecks in Developing Digital Economies.</summary>
                         <div class="dropdown-content">
                             <p>
-                               A systematic meta-analysis evaluating performance decay in modern NLP translation models under extreme data-scarcity thresholds. Compiling a taxonomic framework of cross-lingual transfer learning algorithms and subword tokenization alignment mechanics. Quantifying how vocabulary out-of-domain (OOD) translation errors directly impede marketplace data liquidity across East African commerce.
-
+                                A systematic meta-analysis evaluating performance decay in modern NLP translation models under extreme data-scarcity thresholds. Compiling a taxonomic framework of low-resource language transfer strategies, corpus bottlenecks, and deployment considerations for underrepresented digital economies.
                             </p>
                         </div>
                     </details>
