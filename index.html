@@ -44,20 +44,17 @@
                 background-color: var(--bg);
                 font-family: 'SF Mono', Monaco, Consolas, 'Fira Code', monospace;
                 color: var(--text);
-                padding: 0 40px;
-                display: flex;
-                justify-content: center;
                 min-height: 100vh;
                 -webkit-font-smoothing: antialiased;
                 transition: background-color 0.25s ease, color 0.25s ease;
             }
 
             .main-wrapper {
-                width: 100%;
-                max-width: 680px;
+                width: min(100%, 680px);
+                margin: 0 auto;
                 display: flex;
                 flex-direction: column;
-                padding-top: 60px;
+                padding: 60px 40px 0;
             }
 
             .navbar {
@@ -200,11 +197,8 @@
             }
 
             @media (max-width: 600px) {
-                body {
-                    padding: 0 24px;
-                }
                 .main-wrapper {
-                    padding-top: 40px;
+                    padding: 40px 24px 0;
                 }
                 .navdiv {
                     flex-direction: column;
@@ -261,29 +255,20 @@
                 </div>
             </nav>
 
-         <div class="page-wrapper">
-                        <a href="/copyright">
-                        <img class="profile-header-img" src="david's-coffee.png" alt=" ">
-                        </a>
-                        
-                     <main class="content-section">
+            <div class="page-wrapper">
+                <a href="/copyright">
+                    <img class="profile-header-img" src="david's-coffee.png" alt=" ">
+                </a>
 
-                    <p class="p1">
-                        <i>Hello there!</i> I'm David Busha, a 'developer' and high-school junior located in Ethiopia. I programmed this site from scratch to serve as an independent digital sandbox—a clean personal home for hosting my research papers, genuine interests, and much more.
-                    </p>
-                    <p class="p1">
-                        My interests lie at the intersection of computer science, language, and the humanities. I am particularly interested in how computational methods can help us understand language and patterns, and I am exploring these questions through independent research and technical projects. Beyond computing, I remain drawn to the social sciences-fields that shape the questions I ask and the way I approach problems.
-                    </p>
+                <main class="content-section">
+                    <p class="p1"><i>Hello there!</i> I'm David Busha, a 'developer' and high-school junior located in Ethiopia. I programmed this site from scratch to serve as an independent digital sandbox for my writing, programming, and thinking.</p>
+                    <p class="p1">My interests lie at the intersection of computer science, language, and the humanities. I am particularly interested in how computational methods can help us understand language and thought in ways that remain deeply human.</p>
 
                     <div class="section-label">ABOUT ME</div>
 
-                    <p class="p1">
-                        I was born in Canada to Ethiopian parents and moved to Ethiopia at age 6. I first jumped deep into structural linguistic arrays during my training for competitive exhibitions. This work culminated on the continental stage in both Blantyre, Malawi and Kampala, Uganda, where I won silver in the Senior Category at the 6th Annual African Spelling Bee Finals, making history as the first podium placement representing Ethiopia.
-                    </p>
+                    <p class="p1">I was born in Canada to Ethiopian parents and moved to Ethiopia at age 6. I first jumped deep into structural linguistic arrays during my training for competitive exhibitions and literary writing, which later expanded into a broader interest in systems, logic, and both quantitative and qualitative analysis.</p>
 
-                    <p class="p1">
-                        Lately, I have pivoted those analytical frameworks toward software systems engineering and data synthesis, building out localized logic utilities while writing independent research and technical notes.
-                    </p>
+                    <p class="p1">Lately, I have pivoted those analytical frameworks toward software systems engineering and data synthesis, building out localized logic utilities while writing independent essays about attention, digital life, and intellectual practice.</p>
 
                     <div class="section-label">MENTIONS AND APPEARANCES</div>
 
@@ -294,7 +279,7 @@
                         </li>
                         <li class="appearance-item">
                             <span class="item-tag"><i>[Capital]</i></span>
-                            <a class="accent-link" href="https://capitalethiopia.com/2023/12/19/african-spelling-bee-championships-conclude-in-kampala/" target="_blank" rel="noopener noreferrer">Ethiopia's David Busha came 2nd in Senior Category</a>
+                            <a class="accent-link" href="https://capitalethiopia.com/2023/12/19/african-spelling-bee-championships-conclude-in-kampala/" target="_blank" rel="noopener noreferrer">African Spelling Bee championships conclude in Kampala</a>
                         </li>
                         <li class="appearance-item">
                             <span class="item-tag"><i>[Wikipedia]</i></span>
@@ -315,5 +300,8 @@
                             <a class="accent-link" href="https://www.instagram.com/davidbusha_/" target="_blank" rel="noopener noreferrer">@davidbusha_</a>
                         </li>
                     </ul>
+                </main>
+            </div>
+        </div>
     </body>
 </html>
