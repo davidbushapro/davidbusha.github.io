@@ -46,20 +46,17 @@
                 background-color: var(--bg);
                 font-family: 'SF Mono', Monaco, Consolas, 'Fira Code', monospace;
                 color: var(--text);
-                padding: 0 40px;
-                display: flex;
-                justify-content: center;
                 min-height: 100vh;
                 -webkit-font-smoothing: antialiased;
                 transition: background-color 0.25s ease, color 0.25s ease;
             }
 
             .main-wrapper {
-                width: 100%;
-                max-width: 680px;
+                width: min(100%, 680px);
+                margin: 0 auto;
                 display: flex;
                 flex-direction: column;
-                padding-top: 60px;
+                padding: 60px 40px 0;
             }
 
             .navbar {
@@ -240,12 +237,8 @@
             }
 
             @media (max-width: 600px) {
-                body {
-                    padding: 0 24px;
-                }
-
                 .main-wrapper {
-                    padding-top: 40px;
+                    padding: 40px 24px 0;
                 }
 
                 .navdiv {
@@ -308,7 +301,7 @@
                         <summary class="dropdown-summary">[ what i want to write about ]</summary>
                         <div class="dropdown-content">
                             <p>
-                                I want to write about the ideas I keep circling back to: how people build better systems for learning and work, how attention and digital environments shape behavior, and how ambitious people can think more clearly in a noisy world. I am interested in essays that connect productivity, technology, research, and the pursuit of a thoughtful life. I have no essays yet, but there are many to come.
+                                I want to write about the ideas I keep circling back to: how people build better systems for learning and work, how attention and digital environments shape behavior, and how to make thoughtful, sustainable choices in a world full of noise. It is a place for those threads to become clearer over time.
                             </p>
                         </div>
                     </details>
